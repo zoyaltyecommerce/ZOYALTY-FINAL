@@ -167,7 +167,52 @@
         }
     </script>
 
+    <script type="text/javascript">
 
+        //document.getElementById('resb').style.display = 'none';
+        function delete_cartitem(id) {
+            debugger;
+            //var REMOVE_cart = document.getElementById('DELETE_CART' + id);
+            //REMOVE_cart.remove(REMOVE_cart.id);
+            //var REMOVE = document.getElementById('delete_product' + id);
+            //REMOVE.remove(REMOVE.id);
+            // PageMethods.delete_cartitem(document.getElementById('REMOVE_cart').value, OnSuccess, onfailure);
+            PageMethods.delete_cartitemweb(id, OnSuccessDelete, onfailureDelete)
+       
+        }
+        function OnSuccessDelete(result) {
+            //var res = result.split(',');
+            //document.getElementById('ctl00_ContentPlaceHolder1_lbl_count_item').innerHTML = "Your selection(" + res[1] + "   items)";
+            //document.getElementById('ctl00_ContentPlaceHolder1_lbl_count_item').value = res[1];
+            //document.getElementById("ctl00_ContentPlaceHolder1_cart_total_footer").innerHTML = res[0];
+            //document.getElementById("ctl00_ContentPlaceHolder1_total_footer").innerHTML = res[0];
+            //document.getElementById("ctl00_sub_amount_cart").innerHTML = res[0];
+
+            ////document.getElementById('cart_head').innerHTML = "Your selection items(" + res[1] + ")";
+            //debugger;
+            //if (res[1] == 0) {
+            //    location.href = "../index.aspx";
+            //    var res = document.getElementById('result');
+            //    document.getElementById("Myres").style.borderColor = "#ddd";
+            //    // document.getElementsByClassName("resdata").style.border = "1px solid #ddd";
+            //    var n = "Noitem selected";
+            //    res.innerHTML = n;
+            //    var zero = "00.00";
+            //    document.getElementById("ctl00_ContentPlaceHolder1_cart_total_footer").innerHTML = zero;
+            //    document.getElementById("ctl00_ContentPlaceHolder1_total_footer").innerHTML = zero;
+            //    document.getElementById("ctl00_sub_amount_cart").innerHTML = zero;
+
+
+            //}
+            location.href = "shop-cart-full.aspx";
+
+
+        }
+        function onfailureDelete(response) {
+
+            alert(response);
+        }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Begin Main -->

@@ -58,7 +58,17 @@ namespace Zoyal
                             {
                                 if (dt_temp.Rows[i]["PRODUCT_ID"].ToString() == Request.QueryString["id"])
                                 {
-                                    //sta = true;
+                                    //DataRow[] resultnew = dt_product.Select("product_id = " + productid + "");
+                                    //foreach (DataRow row in result1)
+                                    //{
+                                    //    if (row["PRODUCT_ID"].ToString().Equals("" + productid + ""))
+                                    //    {
+                                    //        row["PRODUCT_QTY"] = 1;
+                                    //        row["PRODUCT_SUB_TOTAL"] = row["PRODUCT_PRICE"];
+                                    //        row["GRAND_TOTAL"] = row["PRODUCT_SUB_TOTAL"];
+
+                                    //    }
+                                    //}
                                 }
                             }
                             if (sta == false)
@@ -82,7 +92,7 @@ namespace Zoyal
                     }
                     else
                     {
-
+                        Response.Redirect("index.aspx");
                     }
                     //LOAD CITYS
 
@@ -313,7 +323,7 @@ namespace Zoyal
                 HttpContext.Current.Session["CART"] = null;
 
             }
-            
+
             // return count.ToString();
             return delamount.ToString() + "," + count.ToString();
 

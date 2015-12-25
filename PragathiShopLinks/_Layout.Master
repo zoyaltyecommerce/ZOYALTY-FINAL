@@ -15,6 +15,7 @@
  
  </style>
     <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -127,7 +128,7 @@
                         <div id="div_login">
                             <li class="active">
                                 <h4 id="h4login">Login</h4>
-                                <h4 id="h4forgetpwd" style="display: none">FORGET PASSWORD</h4>
+                                <h4 id="h4forgetpwd" style="display: none">FORGOT PASSWORD</h4>
                                 <p id="loginlbl">If you're a member, login here.</p>
                                 <p id="lbl2" style="display: none">Enter the Email_ID </p>
                                 <div class="form-group">
@@ -565,51 +566,7 @@
 
     </script>
 
-    <script type="text/javascript">
-
-        //document.getElementById('resb').style.display = 'none';
-        function delete_cartitem(id) {
-
-            var REMOVE_cart = document.getElementById('DELETE_CART' + id);
-            REMOVE_cart.remove(REMOVE_cart.id);
-            var REMOVE = document.getElementById('delete_product' + id);
-            REMOVE.remove(REMOVE.id);
-            // PageMethods.delete_cartitem(document.getElementById('REMOVE_cart').value, OnSuccess, onfailure);
-            PageMethods.delete_cartitemweb(id, OnSuccessDelete, onfailureDelete)
-        }
-        function OnSuccessDelete(result) {
-            var res = result.split(',');
-            document.getElementById('ctl00_ContentPlaceHolder1_lbl_count_item').innerHTML = "Your selection(" + res[1] + "   items)";
-            document.getElementById('ctl00_ContentPlaceHolder1_lbl_count_item').value = res[1];
-            document.getElementById("ctl00_ContentPlaceHolder1_cart_total_footer").innerHTML = res[0];
-            document.getElementById("ctl00_ContentPlaceHolder1_total_footer").innerHTML = res[0];
-            document.getElementById("ctl00_sub_amount_cart").innerHTML = res[0];
-
-            //document.getElementById('cart_head').innerHTML = "Your selection items(" + res[1] + ")";
-            debugger;
-            if (res[1] == 0) {
-                location.href = "../index.aspx";
-                var res = document.getElementById('result');
-                document.getElementById("Myres").style.borderColor = "#ddd";
-                // document.getElementsByClassName("resdata").style.border = "1px solid #ddd";
-               var n = "Noitem selected";
-                res.innerHTML = n;
-                var zero = "00.00";
-                document.getElementById("ctl00_ContentPlaceHolder1_cart_total_footer").innerHTML = zero;
-                document.getElementById("ctl00_ContentPlaceHolder1_total_footer").innerHTML = zero;
-                document.getElementById("ctl00_sub_amount_cart").innerHTML = zero;
-                
-
-            }
-            location.href = "shop-cart-full.aspx";
-
-
-        }
-        function onfailureDelete(response) {
-
-            // alert(response);
-        }
-    </script>
+    
     <script type="text/javascript">
         function qtyincrees(id, price) {
             debugger;

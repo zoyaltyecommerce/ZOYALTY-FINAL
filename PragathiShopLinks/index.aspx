@@ -64,7 +64,27 @@
        
     </style>
  
-    
+    <script type="text/javascript">
+
+        //document.getElementById('resb').style.display = 'none';
+        function delete_cartitem(id) {
+            debugger;
+            //var REMOVE_cart = document.getElementById('DELETE_CART' + id);
+            //REMOVE_cart.remove(REMOVE_cart.id);
+            //var REMOVE = document.getElementById('delete_product' + id);
+            //REMOVE.remove(REMOVE.id);
+            // PageMethods.delete_cartitem(document.getElementById('REMOVE_cart').value, OnSuccess, onfailure);
+            PageMethods.delete_cartitemweb(id, OnSuccessDelete, onfailureDelete)
+
+        }
+        function OnSuccessDelete(result) {
+            location.href = "contactUs.aspx";
+        }
+        function onfailureDelete(response) {
+
+            alert(response);
+        }
+    </script>
     
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
