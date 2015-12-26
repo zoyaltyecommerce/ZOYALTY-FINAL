@@ -247,18 +247,17 @@
                                 <div class="col-xs-6 col-sm-4">
                                     <h2>Contact detail</h2>
                                     <address>
-                                        <i class="fa fa-map-marker"></i>Zoyalty<br>
-                                        Begumpet, Hyderabad<br>
-                                        <i class="fa fa-phone"></i>Phone. 9059132905<br>
+                                        <i class="fa fa-map-marker"></i>Prozect Centre<br/>
+                                       Prozect Centre ,Begumpet, Hyderabad<br>
+                                        <i class="fa fa-phone"></i>Phone.7842220740  <br>
                                         <!--<i class="fa fa-fax"></i> Fax. (123) 456-7890<br>-->
-                                        <i class="fa fa-envelope"></i>E-mail. <a href="mailto:info@zoyalty.in">info@zoyalty.com</a>
+                                        <i class="fa fa-envelope"></i>E-mail. <a href="mailto:Care@prozect.in">Care@prozect.inCare</a>
                                     </address>
                                 </div>
                                 <div class="col-xs-6 col-sm-4">
                                     <h2>Quick Links</h2>
                                     <ul class="list-unstyled">
-                                        <li><a href="#">Track Orders</a></li>
-                                        <li><a href="#">Blog</a></li>
+                                        
                                         <li><a href="#">Terms and Conditions</a></li>
                                         <li><a href="#">Privacy Policy</a></li>
 
@@ -289,8 +288,8 @@
                                 </div>
                                 <div class="col-xs-6 text-right">
                                     <ul class="list-inline social-list">
-                                        <li><a data-toggle="tooltip" data-placement="top" title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a data-toggle="tooltip" data-placement="top" title="Twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a data-toggle="tooltip" data-placement="top" title="Facebook" href="https://www.facebook.com/prozectin-165407250481595/?ref=hl"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a data-toggle="tooltip" data-placement="top" title="Twitter" href="https://twitter.com/prozect1"><i class="fa fa-twitter"></i></a></li>
                                         <li><a data-toggle="tooltip" data-placement="top" title="Google+" href="#"><i class="fa fa-google-plus"></i></a></li>
                                         <li><a data-toggle="tooltip" data-placement="top" title="Pinterest" href="#"><i class="fa fa-pinterest"></i></a></li>
                                         <li><a data-toggle="tooltip" data-placement="top" title="RSS" href="#"><i class="fa fa-rss"></i></a></li>
