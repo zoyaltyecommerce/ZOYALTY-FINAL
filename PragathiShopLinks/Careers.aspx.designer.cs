@@ -94,6 +94,15 @@ namespace Zoyal {
         protected global::System.Web.UI.WebControls.DropDownList drp1;
         
         /// <summary>
+        /// drpdown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator drpdown;
+        
+        /// <summary>
         /// btn_submit control.
         /// </summary>
         /// <remarks>

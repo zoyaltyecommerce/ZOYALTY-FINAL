@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="style-switcher/css/style-switcher.css">
     <link href="css/colors/cyan/style.html" rel="stylesheet" id="layoutstyle">
     <!-- Theme Responsive-->
-    <link href="css/theme-responsive.css" rel="stylesheet">
+    <link href="css/theme-responsive.css" rel="stylesheet"/>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -62,37 +62,45 @@
             <div class="container">
                 <p>We are transforming content viewing Experience for making india more happier place.
 Come ! Be part of change !</p>
-                       <div class="col-xs-6">
-          <label>Full Name:</label>        
-                     <asp:TextBox ID="txt_name" runat="server"  class="form-control"></asp:TextBox>
+                <table>
+                      
+         <tr><td><label>Full Name:</label></td><td><asp:TextBox ID="txt_name" runat="server" class="form-control"></asp:TextBox></td> <td><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_name" ErrorMessage="please enter your Name" ></asp:RequiredFieldValidator></td></tr>     
+                    <tr><td>&nbsp&nbsp</td></tr>   
+                     
                   
-                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_name" ErrorMessage="please enter your Name" ></asp:RequiredFieldValidator>
-                    </div>
-                    <div class="col-xs-6">
-                     <label>Email</label>
-                      <asp:TextBox ID="txt_email" runat="server" CssClass="form-control"></asp:TextBox>
+               
                         
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_email" ErrorMessage="please enter your Email"></asp:RequiredFieldValidator>
-             
+                 <tr><td> <label>Email</label></td><td><asp:TextBox ID="txt_email" runat="server" CssClass="form-control"></asp:TextBox></td>
                    
-                      <asp:RegularExpressionValidator ID="req_email" runat="server" 
+                    
+                      
+                        
+                 <td><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_email" ErrorMessage="please enter your Email"></asp:RequiredFieldValidator></td>  
+             
+                 <td> <asp:RegularExpressionValidator ID="req_email" runat="server" 
        ErrorMessage="Enter a valid email address"
        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
        ControlToValidate="txt_email" ForeColor="Red" >
- </asp:RegularExpressionValidator>
-                   </div>
-                <div class="col-xs-6">
-                    <label> Contact NO:</label>
-                        <asp:TextBox ID="txt_contactno" runat="server" CssClass="form-control"></asp:TextBox>
-                        
-                       <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txt_contactno" ErrorMessage="please enter your contact no"></asp:RequiredFieldValidator>
+ </asp:RegularExpressionValidator></td>
+            </tr>  
+                    <tr><td>&nbsp&nbsp</td></tr>  
+                     
+              <tr><td> <label> Contact NO:</label></td><td>  <asp:TextBox ID="txt_contactno" runat="server" CssClass="form-control"></asp:TextBox></td>
+                    
+                      
+                    <td><asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txt_contactno" ErrorMessage="please enter your contact no"></asp:RequiredFieldValidator></td>  
+                  
+                       
 
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                 <td><asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
       ControlToValidate="txt_contactno" ErrorMessage="please Enter valid phone number" 
-    ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator>
-                   </div>
-                <div class="col-xs-6">
-                 <label>Position Applied for:</label>
+    ValidationExpression="[0-9]{10}"></asp:RegularExpressionValidator></td></tr> 
+                    <tr><td>&nbsp&nbsp</td></tr>   
+                 
+               <tr>
+
+                <td> <label>Position Applied for:</label></td>
+                   <td>
                         <asp:DropDownList ID="drp1" runat="server" AutoPostBack="true" CssClass="form-control">
                             <asp:ListItem Text="--SELECT POSITION--" Value="0"></asp:ListItem>
                             <asp:ListItem Text="UI/UX Designer" Value="1"></asp:ListItem>
@@ -108,14 +116,28 @@ Come ! Be part of change !</p>
                              <asp:ListItem Text="  Android/IOS " Value="11"></asp:ListItem>
                             <asp:ListItem Text="  Marketing Manager " Value="12"></asp:ListItem>
                             </asp:DropDownList>
-                    </div>            
-              
-                    <table style="margin-left:100px">
+                       </td>
+                       
+            
+                    
+                   <td><asp:RequiredFieldValidator ID="drpdown" runat="server" ControlToValidate="drp1" InitialValue="0" ErrorMessage="please select position" ></asp:RequiredFieldValidator></td></tr>
+                    <tr><td>&nbsp&nbsp</td></tr> 
+
+                    </table>
+                <br />
+                <br />
+               
+                  <table style="margin-left:250px">
                         <tr>
                             <td><asp:Button ID="btn_submit" runat="server" Text="Submit" OnClick="btn_submit_Click"   CssClass="btn btn-primary" /></td>
                         </tr>
-                   
-                       </table>
+                      </table>
+                   <br />
+                <br />
+                <br />
+                <br />
+
+                       
            
         </div>
           
