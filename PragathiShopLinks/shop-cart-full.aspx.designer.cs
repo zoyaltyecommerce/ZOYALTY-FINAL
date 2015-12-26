@@ -292,13 +292,13 @@ namespace Zoyal {
         protected global::System.Web.UI.WebControls.TextBox txt_audience;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// noof control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator noof;
         
         /// <summary>
         /// txt_startdate control.
@@ -337,6 +337,15 @@ namespace Zoyal {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
         
         /// <summary>
+        /// producttbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl producttbl;
+        
+        /// <summary>
         /// txt_promocode control.
         /// </summary>
         /// <remarks>
@@ -371,15 +380,6 @@ namespace Zoyal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputButton Button1;
-        
-        /// <summary>
-        /// producttbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl producttbl;
         
         /// <summary>
         /// cart_total_footer control.

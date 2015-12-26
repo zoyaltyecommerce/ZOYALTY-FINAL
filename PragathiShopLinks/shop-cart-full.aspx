@@ -549,6 +549,8 @@
                                     <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ValidationGroup="procedtocheckout"
                                                         ControlToValidate="txt_city" ErrorMessage="Please enter your city name" Display="Dynamic" SetFocusOnError="true" ForeColor="red">
                                             </asp:RequiredFieldValidator>--%>
+
+
                                 </div>
                             </div>
                         </div>
@@ -558,6 +560,7 @@
                     <div class="featured-box featured-box-secondary">
                         <div class="box-content">
                             <h4>Address</h4>
+                          
 
                             <div>
 
@@ -582,57 +585,71 @@
                                         No of Audience
                                     </label> 
                                     
-                                        <asp:TextBox ID="txt_audience" style="float:right" runat="server" onkeypress="return fun_AllowOnlyAmountAndDot(this.id);"></asp:TextBox>
+                                        <asp:TextBox ID="txt_audience" style="float:right" runat="server" Width="260px" Height="35px" onkeypress="return fun_AllowOnlyAmountAndDot(this.id);"></asp:TextBox>
                                <br />
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ValidationGroup="procedtocheckout"
-                                            ControlToValidate="txt_audience" ErrorMessage="Please Enter No of Audience " Display="Dynamic" SetFocusOnError="true" ForeColor="red" ValidationExpression="[0-9]{10}">
-                                        </asp:RequiredFieldValidator>
+                                <asp:RequiredFieldValidator ID="noof" runat="server" ValidationGroup="procedtocheckout"
+                                        ControlToValidate="txt_audience" ErrorMessage="Please enter No of Audience" Display="Dynamic" SetFocusOnError="true" ForeColor="red">
+                                    </asp:RequiredFieldValidator>
                              
-                                    
-
+                                       
                                 </div>
                                  <div style="padding:10px 0px">
                                             
                                         <label>start date</label>   
                                               
-                              <%--   <edititemtemplate> --%>
-    <asp:TextBox ID="txt_startdate" style="line-height:25px;float:right;" runat="server" Text='<%# Bind("DateofBirth", "{0:yyyy-MM-dd}") %>' TextMode="Date"></asp:TextBox>
+                             
+    <asp:TextBox ID="txt_startdate" style="line-height:25px;float:right;" runat="server" Width="260px" Height="35px" Text='<%# Bind("DateofBirth", "{0:yyyy-MM-dd}") %>' TextMode="Date"></asp:TextBox>
                                      <br />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ValidationGroup="procedtocheckout"
                                                         ControlToValidate="txt_startdate"  ErrorMessage="Please Select start date" Display="Dynamic" SetFocusOnError="true" ForeColor="red">
                                             </asp:RequiredFieldValidator>
-<%--</edititemtemplate>--%>
-                                       
                                 </div>
                                  <div style="padding:10px 0px">
                                             
                                         <label>Start Time</label>   
-                                        <input type="text" id="starttime" name="start_time"  style="line-height:25px;float:right;" onkeypress="return fun_AllowOnlyAmountAndDot(this.id);"/> 
+                                        <input type="text" id="start1" name="start_time"   style="line-height:35px;float:right;width:260px;" onkeypress="return fun_AllowOnlyAmountAndDot(this.id);"/>
+                                       
                                 </div>
                                
                                 
                             <div style="padding:10px 0px">
                                     <label>End date</label>
 
-                                   
-                                        <%--<edititemtemplate> --%>
-    <asp:TextBox ID="txt_enddate" style="line-height:25px;float:right;" runat="server" Text='<%# Bind("DateofBirth", "{0:yyyy-MM-dd}") %>' TextMode="Date"></asp:TextBox>
+
+    <asp:TextBox ID="txt_enddate" style="line-height:25px;float:right;" runat="server" Width="260px" Height="35px" Text='<%# Bind("DateofBirth", "{0:yyyy-MM-dd}") %>' TextMode="Date"></asp:TextBox>
                                 <br />
                                                     
   <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ValidationGroup="procedtocheckout"
                                                         ControlToValidate="txt_enddate" ErrorMessage="Please Select End date" Display="Dynamic"  SetFocusOnError="true" ForeColor="red">
                                             </asp:RequiredFieldValidator>
-<%--</edititemtemplate>--%>
                                    
                                 </div> 
                                   <div style="padding:10px 0px">
                                             
                                         <label>End Time</label>   
 
-                                       <input type="text" id="endtime"  name="end_time" style="line-height:25px;float:right;" onkeypress="return fun_AllowOnlyAmountAndDot(this.id);"/>
-                                    
+                                       <input type="text" id="endtime"   name="end_time" style="line-height:35px;float:right;width:260px;" onkeypress="return fun_AllowOnlyAmountAndDot(this.id);"/>
+                                       
                                 </div>
-                                <div class="form-group">
+                                
+                            </div>
+                               
+                        </div>
+                    </div>
+                </div>
+
+             
+                <div class="col-xs-4">
+
+
+                    <div class="featured-box featured-box-secondary">
+                        <div class="box-content">
+                            <h4>Shopping bag summary</h4>
+
+                            <div id="producttbl" runat="server">
+                                <table cellspacing="0" class="cart-totals" width="100%">
+                                    <tbody>
+                                        <div class="form-group">
                                     <label class="sr-only">Promotional code</label>
                                     <asp:TextBox ID="txt_promocode" runat="server" class="form-control" placeholder="Enter promotional code here"></asp:TextBox>
                                     <asp:Label ID="lbl" runat="server" Visible="true" ForeColor="Red"></asp:Label>
@@ -644,20 +661,6 @@
                                     <input type="button" id="Button1" runat="server" onclick="removie_Coupon()" value="remove Promotion" style="display: none" class="btn btn-primary btn-block btn-sm" />
 
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-4">
-
-
-                    <div class="featured-box featured-box-secondary">
-                        <div class="box-content">
-                            <h4>Shopping bag summary</h4>
-
-                            <div id="producttbl" runat="server">
-                                <table cellspacing="0" class="cart-totals" width="100%">
-                                    <tbody>
 
 
                                         <tr class="cart-subtotal">
