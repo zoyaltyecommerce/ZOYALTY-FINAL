@@ -607,7 +607,7 @@
                                  <div style="padding:10px 0px">
                                             
                                         <label>Start Time</label>   
-                                        <input type="text" id="starttime" name="start_time"  style="line-height:25px;float:right;"/> 
+                                        <input type="text" id="starttime" name="start_time"  style="line-height:25px;float:right;" onkeypress="return fun_AllowOnlyAmountAndDot(this.id);"/> 
                                 </div>
                                
                                 
@@ -629,7 +629,7 @@
                                             
                                         <label>End Time</label>   
 
-                                       <input type="text" id="endtime"  name="end_time" style="line-height:25px;float:right;"/>
+                                       <input type="text" id="endtime"  name="end_time" style="line-height:25px;float:right;" onkeypress="return fun_AllowOnlyAmountAndDot(this.id);"/>
                                     
                                 </div>
                                 <div class="form-group">
