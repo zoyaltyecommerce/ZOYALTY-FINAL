@@ -185,7 +185,7 @@ namespace PragathiShopLinks.Admin
                     string str = FILE1.FileName;
                     // product_img.PostedFile.SaveAs(Server.MapPath(".") + "\\PRODUCT_IMGES\\" + str);
                     FILE1.SaveAs(Server.MapPath(@"/Admin/PRODUCT_IMGES/" + str));
-                    path = "\\PRODUCT_IMGES\\" + str.ToString();
+                    path = "/PRODUCT_IMGES/" + str.ToString();
                 }
                 else
                 {
