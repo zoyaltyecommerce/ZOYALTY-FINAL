@@ -293,9 +293,9 @@ namespace ZOYALTY.Code
             return dt_maincart;
         }
 
-        internal static DataTable GETCART_DETAILS(int VENDORID)
+        internal static DataTable GETCART_DETAILS(int VENDORID,int VENDOR_CITYID)
         {
-            DataTable dt_cartdetails = BLL.ExecuteQuery("EXEC USP_SHOPPINGTRANSACTION @OPERATION='CART_VENDER',@D_VENDORID="+ VENDORID +"");
+            DataTable dt_cartdetails = BLL.ExecuteQuery("EXEC USP_SHOPPINGTRANSACTION @OPERATION='CART_VENDER',@D_VENDORID="+ VENDORID +",@MAINCART_CITY='"+ VENDOR_CITYID + "'");
 
             return dt_cartdetails;
         }
@@ -362,7 +362,7 @@ namespace ZOYALTY.Code
 
         internal static bool INSERT_VENDORS(vendors obj)
         {
-            bool status = BLL.ExecuteNonQuery("EXEC USP_NEWVENDORS @OPERATION='INSERT_VENDORS',@VENDOR_NAME='" + obj.VENDOR_NAME + "',@VENDOR_EMAIL='" + obj.VENDOR_EMAIL + "',@VENDOR_PASSWORD='" + obj.VENDOR_PASSWORD + "',@VENDOR_CONFORMPASSWORD='" + obj.VENDOR_CONFORMPASSWORD + "',@VENDOR_PINCODE='" + obj.VENDOR_PINCODE + "',@VENDOR_BUSINESSNAME='" + obj.VENDOR_BUSINESSNAME + "',@VENDOR_ADDRESS='" + obj.VENDOR_ADDRESS + "',@VENDOR_LANDNUMBER='" + obj.VENDOR_LANDNUMBER + "',@VENDOR_PANCARDNUMBER='" + obj.VENDOR_PANCARDNUMBER + "',@VENDOR_IDENTIFICATIONNUMBER='" + obj.VENDOR_IDENTIFICATIONNUMBER + "',@VENDOR_ACCOUNTHOLDERNAME='" + obj.VENDOR_ACCOUNTHOLDERNAME + "',@VENDOR_ACCOUNTNUMBER='" + obj.VENDOR_ACCOUNTNUMBER + "',@VENDOR_ACCOUNTTYPE='" + obj.VENDOR_ACCOUNTTYPE + "',@VENDOR_IFSCODE='" + obj.VENDOR_IFSCODE + "',@VENDOR_BANKNAME='" + obj.VENDOR_BANKNAME + "',@VENDOR_BRANCH='" + obj.VENDOR_BRANCH + "',@VENDOR_STATE='" + obj.VENDOR_STATE + "',@VENDOR_CITY='" + obj.VENDOR_CITY + "',@VENDOR_CREATEDBY=1,@VENDOR_MODIFIEDBY=1,@VENDOR_STATUS=1,@VENDOR_PHONE='" + obj.VENDOR_PHONE + "',@VENDOR_ALTERPHONE='" + obj.VENDOR_ALTERPHONE + "',@BANK_CITY='" + obj.BANK_CITY + "',@VENDOR_LOCATION='" + obj.VENDOR_LOCATION + "'");
+            bool status = BLL.ExecuteNonQuery("EXEC USP_NEWVENDORS @OPERATION='INSERT_VENDORS',@VENDOR_NAME='" + obj.VENDOR_NAME + "',@VENDOR_EMAIL='" + obj.VENDOR_EMAIL + "',@VENDOR_PASSWORD='" + obj.VENDOR_PASSWORD + "',@VENDOR_CONFORMPASSWORD='" + obj.VENDOR_CONFORMPASSWORD + "',@VENDOR_PINCODE='" + obj.VENDOR_PINCODE + "',@VENDOR_BUSINESSNAME='" + obj.VENDOR_BUSINESSNAME + "',@VENDOR_ADDRESS='" + obj.VENDOR_ADDRESS + "',@VENDOR_LANDNUMBER='" + obj.VENDOR_LANDNUMBER + "',@VENDOR_PANCARDNUMBER='" + obj.VENDOR_PANCARDNUMBER + "',@VENDOR_IDENTIFICATIONNUMBER='" + obj.VENDOR_IDENTIFICATIONNUMBER + "',@VENDOR_ACCOUNTHOLDERNAME='" + obj.VENDOR_ACCOUNTHOLDERNAME + "',@VENDOR_ACCOUNTNUMBER='" + obj.VENDOR_ACCOUNTNUMBER + "',@VENDOR_ACCOUNTTYPE='" + obj.VENDOR_ACCOUNTTYPE + "',@VENDOR_IFSCODE='" + obj.VENDOR_IFSCODE + "',@VENDOR_BANKNAME='" + obj.VENDOR_BANKNAME + "',@VENDOR_BRANCH='" + obj.VENDOR_BRANCH + "',@VENDOR_STATE='" + obj.VENDOR_STATE + "',@VENDOR_CITY='" + obj.VENDOR_CITY + "',@VENDOR_CREATEDBY=1,@VENDOR_MODIFIEDBY=1,@VENDOR_STATUS=1,@VENDOR_PHONE='" + obj.VENDOR_PHONE + "',@VENDOR_ALTERPHONE='" + obj.VENDOR_ALTERPHONE + "',@BANK_CITY='" + obj.BANK_CITY + "',@VENDOR_LOCATION='" + obj.VENDOR_LOCATION + "',@VENDOR_CITYID='" + obj.VENDOR_CITYID+"'");
             return status;
         }
 
@@ -404,7 +404,7 @@ namespace ZOYALTY.Code
         internal static DataTable INSERT_PRODUCT(PRODUCT obj)
         {
 
-            DataTable status = BLL.ExecuteQuery("EXEC USP_INSERT_PRODUCT @OPERATION='INSERT_PRODUCT',@PRODUCT_NAME='" + obj.PRODUCT_NAME + "',@PRODUCT_DESC='" + obj.PRODUCT_DESC + "',@PRODUCT_IMAGEURL='" + obj.PRODUCT_IMAGEURL + "',@PRODUCT_IMAGETITLE='" + obj.PRODUCT_IMAGETITLE + "',@PRODUCT_CREATEDBY=1,@PRODUCT_STATUS=1,@PRODUCT_TITLE='" + obj.PRODUCT_TITLE + "',@PRODUCT_PRICE='" + obj.PRODUCT_PRICE + "'");
+            DataTable status = BLL.ExecuteQuery("EXEC USP_INSERT_PRODUCT @OPERATION='INSERT_PRODUCT',@PRODUCT_NAME='" + obj.PRODUCT_NAME + "',@PRODUCT_DESC='" + obj.PRODUCT_DESC + "',@PRODUCT_IMAGEURL='" + obj.PRODUCT_IMAGEURL + "',@PRODUCT_IMAGETITLE='" + obj.PRODUCT_IMAGETITLE + "',@PRODUCT_CREATEDBY=1,@PRODUCT_STATUS=1,@PRODUCT_TITLE='" + obj.PRODUCT_TITLE + "',@PRODUCT_PRICE='" + obj.PRODUCT_PRICE + "',@PRODUCT_CITYID='"+obj.PRODUCT_CITYID+"'");
             return status;
         }
         internal static DataTable GET_ALLPRODUCTS()
@@ -423,7 +423,7 @@ namespace ZOYALTY.Code
 
         internal static bool updateproduct(PRODUCT OBJ)
         {
-            bool status = BLL.ExecuteNonQuery("EXEC USP_PRODUCTS @OPERATION='upadete_product',@PRODUCT_NAME='" + OBJ.PRODUCT_NAME + "',@PRODUCT_IMAGETITLE='" + OBJ.PRODUCT_IMAGETITLE + "',@PRODUCT_DESC='" + OBJ.PRODUCT_DESC + "',@PRODUCT_TITLE='" + OBJ.PRODUCT_TITLE + "',@PRODUCT_PRICE='" + OBJ.PRODUCT_PRICE + "',@PRODUCT_ID='" + OBJ.PRODUCT_ID + "',@PRODUCT_IMAGEURL='" + OBJ.PRODUCT_IMAGEURL + "',@PRODUCT_CITYID='" + OBJ.PRODUCT_CITYID + "'");
+            bool status = BLL.ExecuteNonQuery("EXEC USP_PRODUCTS @OPERATION='upadete_product',@PRODUCT_NAME='" + OBJ.PRODUCT_NAME + "',@PRODUCT_IMAGETITLE='" + OBJ.PRODUCT_IMAGETITLE + "',@PRODUCT_DESC='" + OBJ.PRODUCT_DESC + "',@PRODUCT_TITLE='" + OBJ.PRODUCT_TITLE + "',@PRODUCT_PRICE='" + OBJ.PRODUCT_PRICE + "',@PRODUCT_ID='" + OBJ.PRODUCT_ID + "',@PRODUCT_IMAGEURL='" + OBJ.PRODUCT_IMAGEURL + "'");
             return status;
         }
 
@@ -533,6 +533,11 @@ namespace ZOYALTY.Code
 
             DataTable DT = BLL.ExecuteQuery("EXEC USP_GETTINGLOCATIONS @OPERATION='GETLOCATION_BYID',@LOCATION_ID='" + obj.LOCATION_ID + "'");
             return DT;
+        }
+        internal static bool insert_careers(careers obj)
+        {
+            bool status = BLL.ExecuteNonQuery("EXEC usp_careers @operation='insert',@fullname='" + obj.fullname + "',@email='" + obj.email + "',@phone='" + obj.phone + "',@position='" + obj.position + "'");
+            return status;
         }
 
 
