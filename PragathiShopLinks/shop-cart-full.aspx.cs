@@ -54,32 +54,42 @@ namespace Zoyal
                         {
                             DataTable dt_temp = (DataTable)Session["CART"];
                             bool sta = false;
+                            string st = Session["productcityid"].ToString();
                             for (int i = 0; i < dt_temp.Rows.Count; i++)
                             {
-                                if (dt_temp.Rows[i]["PRODUCT_ID"].ToString() == Request.QueryString["id"])
-                                {
-                                    //DataRow[] resultnew = dt_product.Select("product_id = " + productid + "");
-                                    //foreach (DataRow row in result1)
-                                    //{
-                                    //    if (row["PRODUCT_ID"].ToString().Equals("" + productid + ""))
-                                    //    {
-                                    //        row["PRODUCT_QTY"] = 1;
-                                    //        row["PRODUCT_SUB_TOTAL"] = row["PRODUCT_PRICE"];
-                                    //        row["GRAND_TOTAL"] = row["PRODUCT_SUB_TOTAL"];
+                                
 
-                                    //    }
-                                    //}
-                                }
+                               
+                                    if (dt_temp.Rows[i]["PRODUCT_ID"].ToString() == Request.QueryString["id"])
+                                    {
+                                        sta = true;
+                                        
+                                    }
+                                
                             }
-                            if (sta == false)
+
+
+
+                            if (dt_product.Rows[0]["PRODUCT_CITYID"].ToString() != st)
+                            {
+                                Session["CART"] = null;
+                                BLL.ShowMessage(this,"please select same city items........");
+                            }
+                            else
                             {
 
-                                DataTable dt_allpro = (DataTable)Session["CART"];
+                                if (sta == false)
+                                {
 
-                                dt_product.Merge(dt_allpro);
-                                // dt_allpro.Merge(dt_product);
-                                Session["CART"] = dt_product;
+                                    DataTable dt_allpro = (DataTable)Session["CART"];
 
+
+                                    dt_product.Merge(dt_allpro);
+
+                                    Session["CART"] = dt_product;
+
+
+                                }
                             }
                         }
 
@@ -161,6 +171,8 @@ namespace Zoyal
             string content = "";
 
             DataTable dt_price = (DataTable)Session["CART"];
+            Session["productcityid"] = dt_price.Rows[0]["PRODUCT_CITYID"].ToString();
+
             for (int i = 0; i < dt_product.Rows.Count; i++)
             {
                 content = content + "<tr id='delete_product" + dt_product.Rows[i]["PRODUCT_ID"] + "' class='cart_table_item'><td class='product-thumbnail'><img alt='' width='80' src='" + dt_product.Rows[i]["PRODUCT_IMAGEURL"] + "'/></td><td class='product-name'><span>" + dt_product.Rows[i]["PRODUCT_IMAGETITLE"] + "<span></td><td class='product-price'><span id='price_" + dt_product.Rows[i]["PRODUCT_PRICE"] + "' class='amount'>" + dt_product.Rows[i]["PRODUCT_PRICE"] + "</span></td><td class='product-quantity'><div class='quantity'><input type = 'button' class='minus' value='-' onclick='qtyminus(" + dt_product.Rows[i]["product_id"] + "," + dt_product.Rows[i]["PRODUCT_PRICE"] + ");'> <input type='text' ID='txtqty_" + dt_product.Rows[i]["PRODUCT_ID"] + "' class='input-text qty text' title='Qty' name='quantity' ReadOnly='true' value='" + dt_product.Rows[i]["PRODUCT_QTY"] + "'  ><input type='button' ID='increement' class='plus' value='+' onclick='qtyincrees(" + dt_product.Rows[i]["PRODUCT_ID"] + "," + dt_product.Rows[i]["PRODUCT_PRICE"] + ");'></div></td><td class='product-subtotal'><span id='sub_amount_" + dt_product.Rows[i]["PRODUCT_ID"] + "' class='amount'>" + dt_product.Rows[i]["PRODUCT_SUB_TOTAL"] + "</span></td><td class='product-remove'><a title = 'Remove this item'  class='remove' onclick='delete_cartitem(" + dt_product.Rows[i]["PRODUCT_ID"] + ");' href='#'><i class='fa fa-times-circle'></i></a></td></tr>";
