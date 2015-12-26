@@ -781,7 +781,9 @@
     <Content Include="vendor\flexslider\fonts\flexslider-icon.woff" />
     <Content Include="vendor\flexslider\fonts\flexslider-icond41d.eot" />
     <Content Include="Admin\_admin.Master" />
+    <None Include="Properties\PublishProfiles\zoyalty - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\zoyalty - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\zoyalty - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\zoyalty - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
