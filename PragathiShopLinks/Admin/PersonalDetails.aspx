@@ -6,12 +6,22 @@
     <div class="col-md-12">
         <asp:HiddenField ID="hid_operation" runat="server" />
         <asp:HiddenField ID="hid_vendorid" runat="server" />
+
+               <style>
+        .rgDataDiv
+{
+height:auto !important;
+}</style>
+
           <h2  style="color:blue">MY DETAILS</h2>
         <div id="div1" runat="server">
      <telerik:RadGrid ID="VENDOR" runat="server" AllowFilteringByColumn="True" FilterMenu-EnableTextHTMLEncoding="false"
                     AllowPaging="True" AutoGenerateColumns="False" GridLines="None" HeaderStyle-HorizontalAlign="Left"
                     PageSize="10" Skin="Sunset" OnNeedDataSource="VENDOR_NeedDataSource"
                     AllowSorting="true" GroupingSettings-CaseSensitive="false" Width="100%">
+          <ExportSettings ExportOnlyData="true" Excel-Format="ExcelML">
+
+             </ExportSettings>
 
               <ClientSettings> 
           <Scrolling AllowScroll="True" ScrollHeight="550" SaveScrollPosition="True"></Scrolling> 
@@ -19,7 +29,9 @@
 
 
 
-                    <MasterTableView Width="100%" TableLayout="Auto">
+                    <MasterTableView Width="100%" TableLayout="Auto" CommandItemDisplay="Top">
+                         <CommandItemSettings   ShowExportToExcelButton="true" ShowExportToPdfButton="true" />
+
                         <Columns>
                              <telerik:GridBoundColumn DataField="VENDOR_NAME" HeaderText="Name" AutoPostBackOnFilter="true"
                                 UniqueName="VENDOR_NAME">

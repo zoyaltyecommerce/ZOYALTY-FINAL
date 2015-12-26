@@ -49,6 +49,15 @@ namespace PragathiShopLinks.Admin {
         protected global::System.Web.UI.WebControls.Button btn_clear;
         
         /// <summary>
+        /// lbl_total control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_total;
+        
+        /// <summary>
         /// cart_details control.
         /// </summary>
         /// <remarks>
@@ -65,14 +74,5 @@ namespace PragathiShopLinks.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadGrid tele_slaes;
-        
-        /// <summary>
-        /// lbl_total control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_total;
     }
 }

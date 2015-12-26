@@ -17,6 +17,9 @@ namespace PragathiShopLinks.Admin
             {
                 load_grid();
                 tele_grid.DataBind();
+
+                tele_grid.MasterTableView.CommandItemSettings.ShowAddNewRecordButton = false;
+                tele_grid.Rebind();
                 div_1.Visible = true;
             }
         }

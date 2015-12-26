@@ -121,6 +121,8 @@
         <table style="margin-left:80px">
             <tr>
                 <td><asp:Button ID="btn_save" runat="server" Text="Save" OnClick="btn_save_Click"  CssClass="btn btn-primary"/></td>
+                 <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                <td><a href="CITIES.aspx" class="btn btn-primary" runat="server">Cancel</a></td>
             </tr>
         </table>
         
@@ -138,6 +140,8 @@
         <table style="margin-left:100px">
             <tr>
                 <td><asp:Button ID="btn_savelocation" runat="server" Text="Save" OnClick="btn_savelocation_Click1"  CssClass="btn btn-primary"/></td>
+                <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                <td><a href="CITIES.aspx" class="btn btn-primary" runat="server">Cancel</a></td>
             </tr>
         </table>
 

@@ -12,10 +12,16 @@ height:auto !important;
        
         <telerik:RadGrid ID="tele_cat" runat="server" AutoGenerateColumns="false" AllowFilteringByColumn="true" AllowSorting="true" AllowPaging="true" PageSize="10" 
             OnNeedDataSource="tele_cat_NeedDataSource" Height="800px" Skin="Sunset" HeaderStyle-HorizontalAlign="Left" GroupingSettings-CaseSensitive="false"  FilterMenu-EnableTextHTMLEncoding="false" Width="100%">
+            <ExportSettings ExportOnlyData="true" Excel-Format="ExcelML">
+
+             </ExportSettings>
+
            <ClientSettings>
                <Scrolling  AllowScroll="true" SaveScrollPosition="true" />
            </ClientSettings>
-             <MasterTableView Width="100%">
+             <MasterTableView Width="100%" CommandItemDisplay="Top">
+                 <CommandItemSettings   ShowExportToExcelButton="true" ShowExportToPdfButton="true" />
+
                 
                 <Columns >
                         <telerik:GridBoundColumn DataField="MAINCART_ID" HeaderText="ORDER_ID" UniqueName="MAINCART_ID"></telerik:GridBoundColumn>

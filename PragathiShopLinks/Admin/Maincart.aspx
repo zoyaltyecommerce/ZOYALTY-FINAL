@@ -11,11 +11,17 @@
                AllowPaging="true" PageSize="10" GroupingSettings-CaseSensitive="false"  FilterMenu-EnableTextHTMLEncoding="false"
 
               OnNeedDataSource="tele_maincart_NeedDataSource" Width="100%"  >
+             <ExportSettings ExportOnlyData="true" Excel-Format="ExcelML">
+
+             </ExportSettings>
                 <ClientSettings>
                <Scrolling  AllowScroll="true" SaveScrollPosition="true" />
            </ClientSettings>
 
-            <MasterTableView Width="100%">
+            <MasterTableView Width="100%" CommandItemDisplay="Top">
+                <ExportSettings ExportOnlyData="true" Excel-Format="ExcelML">
+
+             </ExportSettings>
                 <Columns>
                     <telerik:GridBoundColumn DataField="MAINCART_ID" HeaderText="MAINCART_ID" AutoPostBackOnFilter="true" UniqueName="MAINCART_ID"></telerik:GridBoundColumn>
 

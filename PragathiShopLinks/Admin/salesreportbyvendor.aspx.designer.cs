@@ -13,15 +13,6 @@ namespace PragathiShopLinks.Admin {
     public partial class salesreportbyvendor {
         
         /// <summary>
-        /// txt_enddate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_enddate;
-        
-        /// <summary>
         /// txt_startdate control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace PragathiShopLinks.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_startdate;
+        
+        /// <summary>
+        /// txt_enddate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_enddate;
         
         /// <summary>
         /// btn_search control.
@@ -47,6 +47,15 @@ namespace PragathiShopLinks.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_clear;
+        
+        /// <summary>
+        /// lbl_total control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_total;
         
         /// <summary>
         /// cart_details control.

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/_admin.Master" AutoEventWireup="true" CodeBehind="coupon_details.aspx.cs" Inherits="PragathiShopLinks.Admin.coupon_details" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/_admin.Master" AutoEventWireup="true" CodeBehind="coupon_details.aspx.cs" Inherits="PragathiShopLinks.Admin.coupon_details" EnableEventValidation="false" ValidateRequest="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -86,9 +86,8 @@
         <table style="margin-left:150px">
             <tr>
                 <td><asp:Button ID="btn_add" runat="server" Text="ADD" OnClick="btn_add_Click"  CssClass="btn btn-primary" /></td>
-            <td>&nbsp</td>
-             <td>&nbsp</td>
-            <td><asp:Button  ID="btn_cancel" runat="server" Text="Cancel" OnClick="btn_cancel_Click"  CssClass="btn btn-primary"/></td>
+                <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                <td><a href="coupon_details.aspx" class="btn btn-primary" runat="server">Cancel</a></td>
            </tr>
         </table>
 

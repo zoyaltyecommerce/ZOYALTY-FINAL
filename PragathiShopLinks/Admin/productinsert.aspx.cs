@@ -43,7 +43,7 @@ namespace PragathiShopLinks.Admin
                     string str = product_img.FileName;
                     // product_img.PostedFile.SaveAs(Server.MapPath(".") + "\\PRODUCT_IMGES\\" + str);
                     product_img.SaveAs(Server.MapPath(@"\PRODUCT_IMG\" + str));
-                    path = "\\PRODUCT_IMG\\" + str.ToString();
+                    path = "/PRODUCT_IMG/" + str.ToString();
                 }
                 //else 
                 //{

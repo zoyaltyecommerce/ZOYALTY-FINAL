@@ -21,6 +21,9 @@ namespace PragathiShopLinks.Admin
                 tele_cat.DataBind();
                 cart_details.Visible = true;
 
+                tele_cat.MasterTableView.CommandItemSettings.ShowAddNewRecordButton = false;
+                tele_cat.Rebind();
+
 
             }
 

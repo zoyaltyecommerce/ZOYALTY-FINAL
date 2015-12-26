@@ -19,6 +19,8 @@ namespace PragathiShopLinks.Admin
                 load_cart_view();
                 tele_slaes.DataBind();
                 cart_details.Visible = true;
+                tele_slaes.MasterTableView.CommandItemSettings.ShowAddNewRecordButton = false;
+                tele_slaes.Rebind();
             }
         }
 
@@ -61,6 +63,9 @@ namespace PragathiShopLinks.Admin
 
         protected void btn_clear_Click(object sender, EventArgs e)
         {
+
+            txt_startdate.Text = "";
+            txt_enddate.Text = "";
             load_cart_view();
             tele_slaes.DataBind();
         }

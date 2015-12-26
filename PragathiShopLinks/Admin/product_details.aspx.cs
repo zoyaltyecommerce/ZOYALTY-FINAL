@@ -26,6 +26,8 @@ namespace PragathiShopLinks.Admin
 
              drp_types.DataValueField = "TYPE_ID";
              drp_types.DataBind();
+                product_grid.MasterTableView.CommandItemSettings.ShowAddNewRecordButton = false;
+                product_grid.Rebind();
             }
 
         }
@@ -150,7 +152,7 @@ namespace PragathiShopLinks.Admin
                 txt_IMAGETITL.Text = DT_PRODUCT.Rows[0]["PRODUCT_IMAGETITLE"].ToString();
                 txt_PRICE.Text = DT_PRODUCT.Rows[0]["PRODUCT_PRICE"].ToString();
                 txt_TITLE.Text = DT_PRODUCT.Rows[0]["PRODUCT_TITLE"].ToString();
-                TXT_CITY.Text = DT_PRODUCT.Rows[0]["PRODUCT_CITYID"].ToString();
+              
 
 
 
@@ -199,7 +201,7 @@ namespace PragathiShopLinks.Admin
                     OBJ.PRODUCT_TITLE = BLL.ReplaceQuote(txt_TITLE.Text);
                     OBJ.PRODUCT_ID = Convert.ToInt32(hid_vendorid.Value);
                     OBJ.PRODUCT_IMAGEURL = path;
-                    OBJ.PRODUCT_CITYID = Convert.ToInt32(TXT_CITY.Text);
+                  
 
 
                     status = BLL.updateproduct(OBJ);

@@ -27,6 +27,9 @@ height:auto !important;
                     AllowPaging="True" PageSize="10" AutoGenerateColumns="False" GridLines="None" HeaderStyle-HorizontalAlign="Left"
                      Skin="Sunset"  OnNeedDataSource="rgvendors_NeedDataSource"
                     AllowSorting="true" GroupingSettings-CaseSensitive="false" Width="100%">
+         <ExportSettings ExportOnlyData="true" Excel-Format="ExcelML">
+
+             </ExportSettings>
 
               <ClientSettings> 
           <Scrolling AllowScroll="True" ScrollHeight="550" SaveScrollPosition="True"></Scrolling> 
@@ -35,7 +38,8 @@ height:auto !important;
 
 
 
-                    <MasterTableView Width="100%" TableLayout="Auto">
+                    <MasterTableView Width="100%" TableLayout="Auto" CommandItemDisplay="Top">
+                         <CommandItemSettings   ShowExportToExcelButton="true" ShowExportToPdfButton="true" />
                         <Columns>
                              <telerik:GridBoundColumn DataField="VENDOR_NAME" HeaderText="Name" AutoPostBackOnFilter="true"
                                 UniqueName="VENDOR_NAME">

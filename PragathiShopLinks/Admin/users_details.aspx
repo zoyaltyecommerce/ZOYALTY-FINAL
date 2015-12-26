@@ -8,8 +8,13 @@
             AllowPaging="true"  AutoGenerateColumns="false"  GridLines="None"  HeaderStyle-HorizontalAlign="Left" 
             OnNeedDataSource="tele_grid_NeedDataSource"   PageSize="5"  Skin="Sunset"
             AllowSorting="true"  GroupingSettings-CaseSensitive="false" Width="100%">
+            <ExportSettings ExportOnlyData="true" Excel-Format="ExcelML">
+
+             </ExportSettings>
            
-           <MasterTableView Width="100%">
+           <MasterTableView Width="100%" CommandItemDisplay="Top">
+           <CommandItemSettings   ShowExportToExcelButton="true" ShowExportToPdfButton="true" />
+
                <Columns>
                    <telerik:GridBoundColumn DataField="USER_FIRSTNAME" HeaderText="Name" AutoPostBackOnFilter="true"
                         UniqueName="USER_FIRSTNAME"></telerik:GridBoundColumn>

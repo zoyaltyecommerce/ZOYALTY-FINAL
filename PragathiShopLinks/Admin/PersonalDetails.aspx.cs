@@ -16,7 +16,10 @@ namespace PragathiShopLinks.Admin
             load();
             div1.Visible = true;
             div_update.Visible = false;
-          
+            VENDOR.MasterTableView.CommandItemSettings.ShowAddNewRecordButton = false;
+            VENDOR.Rebind();
+
+
         }
      
         public void load()

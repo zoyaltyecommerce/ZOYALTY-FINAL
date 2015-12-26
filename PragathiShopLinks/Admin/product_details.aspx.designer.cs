@@ -166,15 +166,6 @@ namespace PragathiShopLinks.Admin {
         protected global::System.Web.UI.WebControls.TextBox txt_TITLE;
         
         /// <summary>
-        /// TXT_CITY control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXT_CITY;
-        
-        /// <summary>
         /// btn_update control.
         /// </summary>
         /// <remarks>

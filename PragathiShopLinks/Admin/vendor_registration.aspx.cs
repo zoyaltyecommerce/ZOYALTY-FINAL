@@ -43,6 +43,7 @@ namespace PragathiShopLinks.Admin
             obj.VENDOR_PANCARDNUMBER = txtv_pan.Value;
             obj.VENDOR_IDENTIFICATIONNUMBER = txtv_idproof.Value;
                 obj.VENDOR_CITY = drop_city.SelectedItem.Text;
+                obj.VENDOR_CITYID =Convert.ToInt32(drop_city.SelectedItem.Value);
             obj.VENDOR_STATE = txtv_state.Value;
             obj.VENDOR_PINCODE = txtv_pin.Value;
             obj.VENDOR_BUSINESSNAME = txtv_bisname.Value;

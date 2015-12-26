@@ -17,6 +17,9 @@ namespace PragathiShopLinks.Admin
             {
                 loadgrid();
                 rgvendors.DataBind();
+
+                rgvendors.MasterTableView.CommandItemSettings.ShowAddNewRecordButton = false;
+                rgvendors.Rebind();
                 div1.Visible = true;
                 div_update.Visible = false;
             }

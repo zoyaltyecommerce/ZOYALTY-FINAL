@@ -36,15 +36,28 @@ height:auto !important;
             <asp:Button ID="btn_search" class="btn btn-primary" runat="server" Text="search" OnClick="btn_search_Click" />&nbsp&nbsp&nbsp&nbsp
 
          <asp:Button ID="btn_clear" class="btn btn-primary" runat="server" Text="Clear" OnClick="btn_clear_Click" />
-               </div>   
+         <ul style="float:right">
+        <li>
+             <span>Total Amount</span>
+        <asp:Label ID="lbl_total" runat="server" ForeColor="Red" Width="10px" Height="20px"></asp:Label>
+        </li>
+    </ul>
+               </div>
+    
+       
+      
     <div id="cart_details" runat="server" >
                                          
         <telerik:RadGrid ID="tele_slaes" runat="server" AutoGenerateColumns="false" AllowFilteringByColumn="true" AllowSorting="true" AllowPaging="true" PageSize="10" 
             OnNeedDataSource="tele_slaes_NeedDataSource" Height="800px" Skin="Sunset" HeaderStyle-HorizontalAlign="Left" GroupingSettings-CaseSensitive="false"  FilterMenu-EnableTextHTMLEncoding="false" Width="100%">
+            <ExportSettings ExportOnlyData="true" Excel-Format="ExcelML">
+
+             </ExportSettings>
            <ClientSettings>
                <Scrolling  AllowScroll="true" SaveScrollPosition="true" />
            </ClientSettings>
-             <MasterTableView Width="100%">
+             <MasterTableView Width="100%" CommandItemDisplay="Top">
+                 <CommandItemSettings   ShowExportToExcelButton="true" ShowExportToPdfButton="true" />
              
                 <Columns>
                  
@@ -69,8 +82,7 @@ height:auto !important;
 
         </telerik:RadGrid>
 
-        <span>Total Ammount:</span>
-        <asp:Label ID="lbl_total" runat="server"></asp:Label>
+     
     </div>
 
 </asp:Content>

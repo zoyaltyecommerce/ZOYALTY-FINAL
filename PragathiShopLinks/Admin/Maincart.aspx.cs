@@ -18,6 +18,9 @@ namespace PragathiShopLinks.Admin
                 loadcart();
                 tele_maincart.DataBind();
                 div_main.Visible = true;
+
+                tele_maincart.MasterTableView.CommandItemSettings.ShowAddNewRecordButton = false;
+                tele_maincart.Rebind();
             }
         }
 

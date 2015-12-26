@@ -7,7 +7,11 @@
         <asp:HiddenField ID="hid_operation" runat="server" />
         <asp:HiddenField ID="hid_vendorid" runat="server" />
          <asp:HiddenField ID="product_id" runat="server" />
-       
+                     <style>
+        .rgDataDiv
+{
+height:auto !important;
+}</style>
         
          <div id="div1" runat="server">
               <h2  style="color:blue">PRODUCT DETAILS</h2>
@@ -23,14 +27,23 @@
                     AllowPaging="True" AutoGenerateColumns="False" GridLines="None" HeaderStyle-HorizontalAlign="Left"
                     PageSize="10" Skin="Sunset"   OnNeedDataSource="product_grid_NeedDataSource"
                     AllowSorting="true" GroupingSettings-CaseSensitive="false" Width="100%">
+          <ExportSettings ExportOnlyData="true" Excel-Format="ExcelML">
+
+             </ExportSettings>
+
 
               <ClientSettings> 
           <Scrolling AllowScroll="True" ScrollHeight="550" SaveScrollPosition="True"></Scrolling> 
            </ClientSettings>
 
+      
 
+                    <MasterTableView Width="100%" TableLayout="Auto" CommandItemDisplay="Top">
 
-                    <MasterTableView Width="100%" TableLayout="Auto">
+                      
+                        <CommandItemSettings   ShowExportToExcelButton="true" ShowExportToPdfButton="true" />
+
+                         <CommandItemSettings   ShowExportToExcelButton="true" ShowExportToPdfButton="true" />
                         <Columns>
                              <telerik:GridBoundColumn DataField="PRODUCT_ID" HeaderText="PRODUCT_ID" AutoPostBackOnFilter="true"
                                 UniqueName="PRODUCT_ID">
@@ -178,11 +191,7 @@
                      <td><asp:TextBox ID="txt_TITLE" runat="server"  CssClass="form-control"></asp:TextBox></td>
                  </tr>
                    <tr> <td>&nbsp</td></tr>
-                   <tr>
-                     <td> CITY:</td>
-                      <td><asp:TextBox ID="TXT_CITY" runat="server"  CssClass="form-control"></asp:TextBox></td>
-                    
-                 </tr>
+                
                      <tr> <td>&nbsp</td></tr>
                  
              </table>

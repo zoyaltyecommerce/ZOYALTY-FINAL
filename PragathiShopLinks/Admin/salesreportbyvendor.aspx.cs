@@ -17,6 +17,8 @@ namespace PragathiShopLinks.Admin
             {
                 load_cart_view();
                 tele_sales.DataBind();
+                tele_sales.MasterTableView.CommandItemSettings.ShowAddNewRecordButton = false;
+                tele_sales.Rebind();
             }
            
         }
@@ -31,6 +33,7 @@ namespace PragathiShopLinks.Admin
                 dt_cart_view = BLL.GETCART_ACCEPET_SHOW(Int32.Parse(dt.Rows[0]["vendor_id"].ToString())); 
 
 object total_price = dt_cart_view.Compute("Sum(maincart_totalprice)", string.Empty).ToString();
+                lbl_total.Text = total_price.ToString();
                 tele_sales.DataSource = dt_cart_view;
 
 
@@ -46,6 +49,8 @@ object total_price = dt_cart_view.Compute("Sum(maincart_totalprice)", string.Emp
         {
             try
             {
+                txt_startdate.Text = "";
+                txt_enddate.Text = "";
                 load_cart_view();
                 tele_sales.DataBind();
             }
@@ -69,6 +74,7 @@ object total_price = dt_cart_view.Compute("Sum(maincart_totalprice)", string.Emp
                 int vendorid = Convert.ToInt32(dt.Rows[0]["vendor_id"].ToString());
                 DataTable dt_date = BLL.GETVENDORSSALES(startdate, enddate, vendorid);
                 object total_price = dt_date.Compute("Sum(maincart_totalprice)", string.Empty).ToString();
+                lbl_total.Text = total_price.ToString();
                 tele_sales.DataSource = dt_date;
                 tele_sales.DataBind();
             }

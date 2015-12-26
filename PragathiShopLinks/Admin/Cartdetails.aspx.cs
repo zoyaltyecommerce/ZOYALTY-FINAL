@@ -21,8 +21,12 @@ namespace PragathiShopLinks.Admin
                 load_cart_view();
                tele_cat.DataBind();
                 cart_details.Visible = true;
-               
-               
+
+                tele_cat.MasterTableView.CommandItemSettings.ShowAddNewRecordButton = false;
+                tele_cat.Rebind();
+
+
+
             }
 
         }
@@ -34,7 +38,7 @@ namespace PragathiShopLinks.Admin
             {
                 DataTable dt = (DataTable)Session["VENDORS"];
              
-                    dt_cart_view = BLL.GETCART_DETAILS(Int32.Parse(dt.Rows[0]["vendor_id"].ToString()));
+                    dt_cart_view = BLL.GETCART_DETAILS(Int32.Parse(dt.Rows[0]["vendor_id"].ToString()),Convert.ToInt32( dt.Rows[0]["VENDOR_CITYID"].ToString()));
                     tele_cat.DataSource = dt_cart_view;
               
               
