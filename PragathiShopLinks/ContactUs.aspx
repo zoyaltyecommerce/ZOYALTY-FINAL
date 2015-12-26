@@ -100,7 +100,7 @@
 						<div class="contact-content">
 							
 							<h4>Contact Form</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Nam scelerisque faucibus risus non iaculis.</p>
+							
                             <div id="contact-form" name="form1">
 
                                 <div class="form-group">
@@ -171,12 +171,14 @@
 					<div class="col-sm-6 animation">
 						<div class="contact-content">
 							<h4>Get in touch</h4>
-							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.</p>
+						
 							<address>
-								<i class="fa fa-map-marker"></i> Begumpet, hyderabad<br>
-								V6A 1E1 Canada<br><i class="fa fa-phone"></i>9059132905<br>
-								<i class="fa fa-print"></i> 8885629019<br>
-								<i class="fa fa-envelope"></i> <a href="mailto:info@zoyalty.in">info@zoyalty.in</a>
+                                <i class="fa fa-map-marker"></i>Prozect Centre<br/>
+
+								<i class="fa fa-map-marker"></i>Shyamlal Buildings,Begumpet,Hyderabad ,Telangana 500016<br/>
+								<br><i class="fa fa-phone"></i>7842220740<br/>
+								<i class="fa fa-print"></i> 7842220740<br/>
+								<i class="fa fa-envelope"></i> <a href="mailto:Care@prozect.in">Care@prozect.in</a>
 							</address>
 						</div>
 					</div>
