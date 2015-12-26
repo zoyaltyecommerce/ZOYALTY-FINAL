@@ -25,7 +25,7 @@ namespace Zoyal
             try
             {
                 careers obj = new careers();
-                obj.Fullname = txt_name.Text;
+                obj.fullname = txt_name.Text;
                 obj.email = txt_email.Text;
                 obj.phone = txt_contactno.Text;
                 obj.position = drp1.SelectedItem.Text;
