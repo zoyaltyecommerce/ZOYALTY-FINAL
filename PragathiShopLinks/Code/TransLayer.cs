@@ -455,6 +455,7 @@ namespace ZOYALTY.Code
         public string VENDOR_ALTERPHONE { get; set; }
         public string BANK_CITY { get; set; }
         public string VENDOR_LOCATION { get; set; }
+        public int VENDOR_CITYID { set; get; }
     }
 
     public class DECLINEDPRODUCTSBYUSER : SMVTS_MAIN
@@ -489,6 +490,14 @@ namespace ZOYALTY.Code
         public int TYPE_MODIFIEDBY { set; get; }
         public DateTime TYPE_MODIFIEDDATE { get; set; }
         public int TYPE_STATUS { set; get; }
+    }
+    public class careers : SMVTS_MAIN
+    {
+        public int careers_id { get; set; }
+        public string fullname { get; set; }
+        public string email { get; set; }
+        public string position { get; set; }
+        public string phone { get; set; }
     }
 
 }
