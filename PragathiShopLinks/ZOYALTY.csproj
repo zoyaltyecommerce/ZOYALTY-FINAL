@@ -760,6 +760,7 @@
     <Content Include="Admin\LESS\top_navigation.less" />
     <Content Include="Admin\LESS\typography.less" />
     <Content Include="Admin\LESS\variables.less" />
+    <Content Include="Careers.aspx" />
     <Content Include="create_new_user.aspx" />
     <Content Include="css\jquery.timepicker.css" />
     <Content Include="Images\logo %282%29.png" />
@@ -1383,6 +1384,13 @@
     </Compile>
     <Compile Include="blog.aspx.designer.cs">
       <DependentUpon>blog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Careers.aspx.cs">
+      <DependentUpon>Careers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Careers.aspx.designer.cs">
+      <DependentUpon>Careers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\BLL.cs" />
     <Compile Include="Code\Dal.cs" />
