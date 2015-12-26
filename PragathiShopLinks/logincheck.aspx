@@ -16,7 +16,7 @@
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
             <div>
-                 <h4><img src="Images/logo.png" class="logo-name" alt="Flatize"></h4>   
+                 <h4><img src="Images/logo%20(6).png" class="logo-name" alt="Flatize"/></h4>   
             </div>
             <h3>Welcome to User</h3>
             <h2 id="lblmsg" style="display:none">Enter your Email_id</h2>
