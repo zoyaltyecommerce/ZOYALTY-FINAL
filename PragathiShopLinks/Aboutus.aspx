@@ -82,17 +82,13 @@
                 <h2>About Us</h2>
                 <div class="row">
                     <div class="col-md-12 animation">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque e get diam posuere porta. Quisque ut nulla at nunc vehicula lacinia. Proin adipiscing porta tellus, ut feugiat nibh adipiscing sit amet.In eu justo a felis faucibus ornare vel id metus. Vestibulum ante ipsum primis in faucibus tooltip herecd luctus et ultrices posuere cubilia Curae; In eu libero ligula. Fusce eget metus lorem, ac viverra leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque neque eget diam posuere porta.</p>
+                        <p>
+1.Our team consists of experienced professionals from Film Industry, technology  and financial services . Work experience of around 20 years of all founding team put together. We are here to disrupt the industry that needs constant innovation and customer winnning experience
+</p>
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p >Pellentesque pellentesque eget tempor tellus. Fusce lacllentesque eget tempor tellus ellentesque pelleinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus. Fusce lacinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus. Fusce lacinia tempor malesuada.</p>
-                            </div>
-                            <div class="col-md-6">
-                                <p >Pellentesque pellentesque eget tempor tellus. Fusce lacllentesque eget tempor tellus ellentesque pelleinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus. Fusce lacinia tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor tellus. Fusce lacinia tempor malesuada.</p>
-                            </div>
+                        
                         </div>
-                    </div>
+                 
                 </div>
                 <h2>Our Motto</h2>
                 <div class="row">
@@ -104,26 +100,28 @@
                                 </div>
                                 <div id="collapseOne" class="panel-collapse collapse in">
                                     <div class="panel-body">
-                                        <p>Korem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. qui dolorem ipsum quia dolor sit amet.</p>
+                                       <p>2.We are here to make yourselves happier than ever before</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Vission</a> </h4>
+                                    <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">What we do</a> </h4>
+                                    <p>3.We are India’s Latest best content viewing experience providers.Come be part of us making india’s latest & fastest growing happy time providers. We provide best content viewing experience Whether you want to watch movie /live sports /events/your occasions and projector rentals pan india.</p>
                                 </div>
                                 <div id="collapseTwo" class="panel-collapse collapse">
-                                    <div class="panel-body"> <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p> </div>
+                                    <div class="panel-body">  </div>
                                 </div>
                             </div>
                             <div class="panel panel-default">
-                                <div class="panel-heading">
+                               <%-- <div class="panel-heading">
                                     <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">What we do</a> </h4>
-                                </div>
+                                    <p>3.We are India’s Latest best content viewing experience providers.Come be part of us making india’s latest & fastest growing happy time providers. We provide best content viewing experience Whether you want to watch movie /live sports /events/your occasions and projector rentals pan india.</p>
+
+                                </div--%>>
                                 <div id="collapseThree" class="panel-collapse collapse">
                                     <div class="panel-body">
-                                        <p>Anim pariaturs cliche rseprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                                        <p></p>
                                     </div>
                                 </div>
                             </div>
