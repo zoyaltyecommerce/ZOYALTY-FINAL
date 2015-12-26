@@ -91,7 +91,7 @@
                     <div class="col-sm-12 animation">
                         <div class="contact-content">
                             <h4>Partner with us</h4>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.</p>
+                            <p>We are India’s Latest best content viewing experience providers.Come be part of us making india’s latest & fastest growing happy time providers. We provide best content viewing experience and projector rentals.</p>
 
                         </div>
                     </div>
