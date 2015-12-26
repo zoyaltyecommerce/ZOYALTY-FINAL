@@ -769,6 +769,12 @@
     <Content Include="Images\logo %286%29.png" />
     <Content Include="js\jquery.timepicker.js" />
     <Content Include="Admin\location.aspx" />
+    <Content Include="PRODUCT_IMG\5551637319_53f85acf7f_o %281%29.png" />
+    <Content Include="PRODUCT_IMG\laser pointer.jpg" />
+    <Content Include="PRODUCT_IMG\mic images.jpg" />
+    <Content Include="PRODUCT_IMG\PROJECTOR SCREEN 01.JPG" />
+    <Content Include="PRODUCT_IMG\Sound 01.jpg" />
+    <Content Include="PRODUCT_IMG\Theare EXP.jpg" />
     <Content Include="vendor\flexslider\fonts\flexslider-icon.eot" />
     <Content Include="vendor\flexslider\fonts\flexslider-icon.ttf" />
     <Content Include="vendor\flexslider\fonts\flexslider-icon.woff" />
@@ -1142,7 +1148,6 @@
     <Content Include="blog.html" />
     <Content Include="bootstrap-datetimepicker.min.css" />
     <Content Include="bootstrap-datetimepicker.min.js" />
-    <Content Include="Careers.aspx" />
     <Content Include="Careers.html" />
     <Content Include="Contact.html" />
     <Content Include="ContactUs.aspx" />
@@ -1378,13 +1383,6 @@
     </Compile>
     <Compile Include="blog.aspx.designer.cs">
       <DependentUpon>blog.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Careers.aspx.cs">
-      <DependentUpon>Careers.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Careers.aspx.designer.cs">
-      <DependentUpon>Careers.aspx</DependentUpon>
     </Compile>
     <Compile Include="Code\BLL.cs" />
     <Compile Include="Code\Dal.cs" />
