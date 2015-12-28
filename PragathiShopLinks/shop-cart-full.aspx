@@ -66,7 +66,11 @@
             //document.getElementById("total_footer").innerHTML = result; 
         }
     </script> 
- 
+    <script> 
+        $("#timepicker").kendoTimePicker({
+          animation: false
+        });
+    </script>
     <style type="text/css">
      
      #ctl00_ContentPlaceHolder1_btn_radio_0
@@ -736,11 +740,6 @@
     <script src="js/jquery.timepicker.js"></script>
     <!-- Style Switcher -->
     <script type="text/javascript" src="style-switcher/js/switcher.js"></script>
-       <script> 
-        $("#timepicker").kendoTimePicker({
-          animation: false
-        });
-    </script>
         <script type="text/javascript">        
             $(function(){
                 $('#starttime').timepicker();

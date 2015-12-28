@@ -13,6 +13,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Web.UI.HtmlControls;
 using System.Web.Services;
+using System.IO;
 
 namespace Zoyal
 {
@@ -232,26 +233,38 @@ namespace Zoyal
                 obj.USER_CREATEDBY = 1;
                 DataTable dt = BLL.checkusers(obj);
                 DataTable dt_user = new DataTable();
+                MailMessage mailmessage = new MailMessage();
                 if (dt.Rows.Count == 0)
                 {
                     dt_user = BLL.INSERTUSER(obj);
                     if (dt_user.Rows.Count > 0)
-                    {
+
+                    { 
+                        StreamReader reader = new StreamReader(Path.Combine(System.Web.HttpContext.Current.Server.MapPath(@"~/EMAILS/signup.html")));
+                            string readFile = reader.ReadToEnd();
+                            string myString = "";
+                            myString = readFile;
+                            myString = myString.Replace("$$EMAIL$$", obj.USER_EMAILID);
+                           
+                            bool statusemail = BLL.sendemail(myString, "SINUP", "support@chaloindia.net", obj.USER_EMAILID);
+
+
                         BLL.ShowMessage(this, "YOUR ACCOUNT SUCCESSFULLY CREATED");
                         clearcontrols();
+
+                    }
+                       
                     }
                     else
                     {
                         BLL.ShowMessage(this, "contact admin");
-                    }
-                }
-                else
-                {
                     lbl_emailcheck.Visible = true;
                 }
+                
 
 
-                MailMessage mailmessage = new MailMessage();
+
+                MailMessage maimessage = new MailMessage();
                 mailmessage.IsBodyHtml = true;
 
                 SmtpClient client = new SmtpClient("linkskart.com");
@@ -355,33 +368,26 @@ namespace Zoyal
             try
             {
 
-         
-
             USERS obj = new USERS();
             obj.USER_EMAILID = txt_forgetemail.Text;
             MailMessage mailmessage = new MailMessage();
             DataTable dt_user = BLL.FORGETPWD(obj);
-            mailmessage.IsBodyHtml = true;
-            SmtpClient client = new SmtpClient("linkskart.com");
-            client.Credentials = new System.Net.NetworkCredential("info@linkskart.com", ".santhu143");
-            mailmessage.From = new System.Net.Mail.MailAddress("info@linkskart.com");
-            // mailmessage.From = new MailAddress("santhosh@pragatipadh.com");
-            mailmessage.To.Add(dt_user.Rows[0]["USER_EMAILID"].ToString());
-            // mailmessage.CC.Add(emailid);
-            mailmessage.Subject = "Password request";
-            mailmessage.Body = "<p> Dear " + dt_user.Rows[0]["USER_FIRSTNAME"].ToString() + ",<br /> <br />You password is " + BLL.Decrypt(dt_user.Rows[0]["USER_PASSWORD"].ToString()) + " please <a href=\"http://www.linkskart.com\">Click Here</a> to visit LINKSKART.</p></div>";
-            client.EnableSsl = false;
-            try
-            {
-                client.Send(mailmessage);
-                //SmtpMail.Send(eMail);
+                if(dt_user.Rows.Count>0)
+                { 
+                StreamReader reader = new StreamReader(Path.Combine(System.Web.HttpContext.Current.Server.MapPath(@"~/EMAILS/forgotpassword.html")));
+                string readFile = reader.ReadToEnd();
+                string myString = "";
+                myString = readFile;
+                myString = myString.Replace("$$EMAIL$$", obj.USER_EMAILID);
+                myString = myString.Replace("$$PASSWORD$$", BLL.Decrypt(dt_user.Rows[0]["USER_PASSWORD"].ToString()));
+                bool statusemail = BLL.sendemail(myString, "FORGOT PASSWORD-ZOYALTY", "support@chaloindia.net", obj.USER_EMAILID);
+                }
+                else
+                {
+                    BLL.ShowMessage(this, "Entered Email is not registered with us");
+                }
             }
-            catch (Exception ae)
-            {
-                // Label1.Text = ae.Message;
-            }
-            }
-            catch(Exception EX)
+            catch (Exception EX)
             {
 
             }
