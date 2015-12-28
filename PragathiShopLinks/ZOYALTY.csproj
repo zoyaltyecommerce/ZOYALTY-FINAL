@@ -791,6 +791,7 @@
     <Content Include="PRODUCT_IMG\PROJECTOR SCREEN 01.JPG" />
     <Content Include="PRODUCT_IMG\Sound 01.jpg" />
     <Content Include="PRODUCT_IMG\Theare EXP.jpg" />
+    <Content Include="shop-cart-full.aspx" />
     <Content Include="vendor\flexslider\fonts\flexslider-icon.eot" />
     <Content Include="vendor\flexslider\fonts\flexslider-icon.ttf" />
     <Content Include="vendor\flexslider\fonts\flexslider-icon.woff" />
@@ -1181,7 +1182,6 @@
     <Content Include="page-contact2.html" />
     <Content Include="partnerwithus.aspx" />
     <Content Include="Partnerwithus.html" />
-    <Content Include="shop-cart-full.aspx" />
     <Content Include="shop-cart-full.html" />
     <Content Include="shop-cart-sidebar.html" />
     <Content Include="shop-checkout.html" />

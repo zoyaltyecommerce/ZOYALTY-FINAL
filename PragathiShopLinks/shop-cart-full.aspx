@@ -46,7 +46,11 @@
     <link rel="stylesheet" href="css/rtl.min.css"/> 
     <link rel="stylesheet" href="css/silver.min.css"/>  
     <link rel="stylesheet" href="css/mobile.all.min.css"/>  
-    <link href="css/jquery.timepicker.css" rel="stylesheet" /> 
+    <link href="css/jquery.timepicker.css" rel="stylesheet" />
+     <script src="js/jquery.timepicker.js"></script>
+    <link href="css/datetimepicker.css" rel="stylesheet" />
+    <script src="js/theme.plugins.js"></script>
+    <script src="js/theme.js"></script>
     <script src="Scripts/jquery-1.9.1.min.js"></script> 
     <script src="Scripts/all.min.js"></script>
 
@@ -66,11 +70,10 @@
             //document.getElementById("total_footer").innerHTML = result; 
         }
     </script> 
-    <script> 
-        $("#timepicker").kendoTimePicker({
-          animation: false
-        });
-    </script>
+       <script src="js/theme.plugins.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/jquery.timepicker.js"></script>
+   
     <style type="text/css">
      
      #ctl00_ContentPlaceHolder1_btn_radio_0
@@ -213,6 +216,9 @@
             alert(response);
         }
     </script>
+    <link href="Scripts/date%20(1).css" rel="stylesheet" />
+    <script src="Scripts/date%20(2).js"></script>
+    <script src="Scripts/date.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- Begin Main -->
@@ -594,12 +600,13 @@
                                        
                                 </div>
                                  <div style="padding:10px 0px">
-                                            
+                                    
                                         <label>start date</label>   
                                               
                              
-    <asp:TextBox ID="txt_startdate" style="line-height:25px;float:right;" runat="server" Width="260px" Height="35px" Text='<%# Bind("DateofBirth", "{0:yyyy-MM-dd}") %>' TextMode="Date"></asp:TextBox>
+    <asp:TextBox ID="txt_startdate" style="line-height:25px;float:right;" runat="server" Width="260px" Height="35px"></asp:TextBox>
                                      <br />
+                                  
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ValidationGroup="procedtocheckout"
                                                         ControlToValidate="txt_startdate"  ErrorMessage="Please Select start date" Display="Dynamic" SetFocusOnError="true" ForeColor="red">
                                             </asp:RequiredFieldValidator>
@@ -607,16 +614,14 @@
                                  <div style="padding:10px 0px">
                                             
                                         <label>Start Time</label>   
-                                        <input type="text" id="start1" name="start_time"   style="line-height:35px;float:right;width:260px;" onkeypress="return fun_AllowOnlyAmountAndDot(this.id);"/>
-                                       
+                                        <input type="text" id="starttime" name="start_time"   style="line-height:35px;float:right;width:260px;" onkeypress="return fun_AllowOnlyAmountAndDot(this.id);"/>
+                             
                                 </div>
                                
-                                
                             <div style="padding:10px 0px">
                                     <label>End date</label>
 
-
-    <asp:TextBox ID="txt_enddate" style="line-height:25px;float:right;" runat="server" Width="260px" Height="35px" Text='<%# Bind("DateofBirth", "{0:yyyy-MM-dd}") %>' TextMode="Date"></asp:TextBox>
+    <asp:TextBox ID="txt_enddate" style="line-height:25px;float:right;" runat="server" Width="260px" Height="35px" ></asp:TextBox>
                                 <br />
                                                     
   <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ValidationGroup="procedtocheckout"
@@ -733,19 +738,45 @@
     <script src="vendor/mediaelement-and-player.js"></script>
     <script src="vendor/waypoints.min.js"></script>
     <script src="vendor/flexslider/jquery.flexslider-min.js"></script>
+  <script >
+                                         
+        $(document).ready(function () {
+            $("#ctl00_ContentPlaceHolder1_txt_startdate").datepicker({
+                minDate: 0
+            });
+            $("#ctl00_ContentPlaceHolder1_txt_enddate").datepicker({
+                minDate: 0
+            });
+        });
+    </script>
 
     <!-- Theme Initializer -->
-    <script src="js/theme.plugins.js"></script>
-    <script src="js/theme.js"></script>
-    <script src="js/jquery.timepicker.js"></script>
-    <!-- Style Switcher -->
-    <script type="text/javascript" src="style-switcher/js/switcher.js"></script>
-        <script type="text/javascript">        
-            $(function(){
+  <script> 
+        $("#timepicker").kendoTimePicker({
+          animation: false
+        });
+    </script>
+    
+    <script type="text/javascript" >  
+        debugger;
+            $(function(){ 
+             
                 $('#starttime').timepicker();
                 $('#endtime').timepicker();
                  });
+           
          </script>  
+   
+    <!-- Style Switcher -->
+    <script type="text/javascript" src="style-switcher/js/switcher.js"></script>
+       
+   <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" rel="Stylesheet"
+        type="text/css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    
+
+
     <%--</div> --%> 
 </asp:Content>
 
