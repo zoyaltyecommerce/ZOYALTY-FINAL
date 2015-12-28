@@ -152,6 +152,7 @@ namespace PragathiShopLinks.Admin
                 txt_IMAGETITL.Text = DT_PRODUCT.Rows[0]["PRODUCT_IMAGETITLE"].ToString();
                 txt_PRICE.Text = DT_PRODUCT.Rows[0]["PRODUCT_PRICE"].ToString();
                 txt_TITLE.Text = DT_PRODUCT.Rows[0]["PRODUCT_TITLE"].ToString();
+                image.Value = DT_PRODUCT.Rows[0]["PRODUCT_IMAGEURL"].ToString();
               
 
 
@@ -184,8 +185,8 @@ namespace PragathiShopLinks.Admin
                 {
                     string str = FILE1.FileName;
                     // product_img.PostedFile.SaveAs(Server.MapPath(".") + "\\PRODUCT_IMGES\\" + str);
-                    FILE1.SaveAs(Server.MapPath(@"/Admin/PRODUCT_IMGES/" + str));
-                    path = "/PRODUCT_IMGES/" + str.ToString();
+                    FILE1.SaveAs(Server.MapPath(@"\PRODUCT_IMG\" + str));
+                    path = "/PRODUCT_IMG/" + str.ToString();
                 }
                 else
                 {
@@ -200,7 +201,18 @@ namespace PragathiShopLinks.Admin
                     OBJ.PRODUCT_PRICE = Convert.ToDecimal(BLL.ReplaceQuote(txt_PRICE.Text));
                     OBJ.PRODUCT_TITLE = BLL.ReplaceQuote(txt_TITLE.Text);
                     OBJ.PRODUCT_ID = Convert.ToInt32(hid_vendorid.Value);
+
+
+                if (path != "")
+                {
                     OBJ.PRODUCT_IMAGEURL = path;
+                }
+                else
+                {
+                    OBJ.PRODUCT_IMAGEURL = image.Value;
+
+                }
+                    
                   
 
 

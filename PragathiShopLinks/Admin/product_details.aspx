@@ -7,6 +7,11 @@
         <asp:HiddenField ID="hid_operation" runat="server" />
         <asp:HiddenField ID="hid_vendorid" runat="server" />
          <asp:HiddenField ID="product_id" runat="server" />
+          <asp:HiddenField ID="image" runat="server" />
+
+       
+
+
                      <style>
         .rgDataDiv
 {
