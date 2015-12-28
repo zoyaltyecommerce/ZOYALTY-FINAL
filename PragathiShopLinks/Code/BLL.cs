@@ -12,6 +12,8 @@ using System.Diagnostics;
 using System.Configuration;
 using System.Data.SqlClient;
 using ZOYALTY.Code;
+using System.Net.Mail;
+
 namespace ZOYALTY.Code
 {
     public class BLL
@@ -540,7 +542,37 @@ namespace ZOYALTY.Code
             return status;
         }
 
+        internal static bool sendemail(string message, string subject, string fromemail, string toemail)
+        {
+            bool status = false;
+            MailMessage mailmessage = new MailMessage();
+            mailmessage.IsBodyHtml = true;
+            SmtpClient client = new SmtpClient("chaloindia.net");
 
+            client.Credentials = new System.Net.NetworkCredential("support@chaloindia.net", "chalo123");
+            mailmessage.From = new System.Net.Mail.MailAddress(fromemail);
+
+            // mailmessage.From = new MailAddress("santhosh@pragatipadh.com");
+            mailmessage.To.Add(toemail);
+            mailmessage.Bcc.Add(fromemail);
+            // mailmessage.CC.Add(emailid);
+            mailmessage.Subject = subject;
+
+            mailmessage.Body = message;
+            client.EnableSsl = false;
+            try
+            {
+
+                client.Send(mailmessage);
+                status = true;
+            }
+            catch (Exception ae)
+            {
+                status = false;
+            }
+            return status;
+
+        }
 
     }
 }
