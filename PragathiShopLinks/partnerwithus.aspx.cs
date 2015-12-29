@@ -12,6 +12,7 @@ using System.Drawing;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Web.Services;
+using System.IO;
 
 namespace Zoyal
 {
@@ -64,9 +65,31 @@ namespace Zoyal
                 obj.PARTNER_MODIFIEDBY = 1;
                 DataTable dt = BLL.PARTNERE_MAIL(obj);
                 DataTable dt_partners = new DataTable();
-                bool status = BLL.INSERTPARTNER(obj);
-                if (status == true)
+               DataTable status = BLL.INSERTPARTNER(obj);
+                if (status.Rows.Count>0)
                 {
+                    StreamReader reader = new StreamReader(Path.Combine(System.Web.HttpContext.Current.Server.MapPath(@"~/EMAILS/partnerwithus.html")));
+                    string readFile = reader.ReadToEnd();
+                    string myString = "";
+                    myString = readFile;
+                    myString = myString.Replace("$$EMIAL$$", obj.PARTNER_EMAIL);
+                    myString = myString.Replace("$$NAME$$", obj.PARTNER_NAME);
+
+                    bool statusemail = BLL.sendemail(myString, "Contactus", "4seduservices@gmail.com", obj.PARTNER_EMAIL);
+
+                    StreamReader reader1 = new StreamReader(Path.Combine(System.Web.HttpContext.Current.Server.MapPath(@"~/EMAILS/partner-prozect.html")));
+                    string readfile1 = reader1.ReadToEnd();
+                    string mystring1 = "";
+                    mystring1 = readfile1;
+                    mystring1 = mystring1.Replace("$$email$$", obj.PARTNER_EMAIL);
+                    mystring1 = mystring1.Replace("$$NAME$$", obj.PARTNER_NAME);
+                    mystring1 = mystring1.Replace("$$phone$$", obj.PARTNER_PHONENUMBER);
+                    mystring1 = mystring1.Replace("$$subject$$", obj.PARTNER_SUBJECT);
+                    mystring1 = mystring1.Replace("$$messgae$$", obj.PARTNER_MESSAGE);
+                    String FROMEMAIL = "vangasrinivas285@gmail.com";
+                    bool statusemail1 = BLL.sendemail(mystring1, "COntactus for prozector", "4seduservices@gmail.com", FROMEMAIL);
+
+
                     BLL.ShowMessage(this, "Thank you for contacting us, one of our executive will reach you soon");
                     clearcontrols();
                 }
@@ -74,28 +97,6 @@ namespace Zoyal
                 {
                     BLL.ShowMessage(this, "Please contact administrator");
                     clearcontrols();
-                }
-
-                MailMessage mailmessage = new MailMessage();
-                mailmessage.IsBodyHtml = true;
-
-                SmtpClient client = new SmtpClient("linkskart.com");
-                client.Credentials = new System.Net.NetworkCredential("info@linkskart.com", ".santhu143");
-                mailmessage.From = new System.Net.Mail.MailAddress("info@linkskart.com");
-                // mailmessage.From = new MailAddress("santhosh@pragatipadh.com");
-                mailmessage.To.Add(dt_partners.Rows[0]["PARTNER_EMAIL"].ToString());
-                // mailmessage.CC.Add(emailid);
-                mailmessage.Subject = "your account is created";
-                mailmessage.Body = "<p> Dear " + dt_partners.Rows[0]["PARTNER_EMAIL"].ToString() + " " + ",<br /> <br />Your account is successfully created " + " please <a href=\"http://www.linkskart.com\">Click Here</a> to visit LINKSKART.</p></div>";
-                client.EnableSsl = false;
-                try
-                {
-                    client.Send(mailmessage);
-                    //SmtpMail.Send(eMail);
-                }
-                catch (Exception ae)
-                {
-                    // Label1.Text = ae.Message;
                 }
 
 
