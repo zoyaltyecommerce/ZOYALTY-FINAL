@@ -12,7 +12,7 @@ using System.Drawing;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Web.Services;
-
+using System.IO;
 
 namespace Zoyal
 {
@@ -63,9 +63,31 @@ namespace Zoyal
                 obj.CONTACT_SUBJECT = BLL.ReplaceQuote(txt_subject.Text);
                 DataTable dt = BLL.CONTACT_EMAIL(obj);
                 DataTable dt_contact = new DataTable();
-                bool status = BLL.INSERTCONTACT(obj);
-                if (status == true)
+                DataTable status = BLL.INSERTCONTACT(obj);
+                if (status.Rows.Count>0)
                 {
+                    StreamReader reader = new StreamReader(Path.Combine(System.Web.HttpContext.Current.Server.MapPath(@"~/EMAILS/Contacts.html")));
+                    string readFile = reader.ReadToEnd();
+                    string myString = "";
+                    myString = readFile;
+                    myString = myString.Replace("$$EMIAL$$", obj.CONTACT_EMAIL);
+                    myString = myString.Replace("$$NAME$$", obj.CONTACT_NAME);
+
+                    bool statusemail = BLL.sendemail(myString, "Contactus", "4seduservices@gmail.com", obj.CONTACT_EMAIL);
+
+                    StreamReader reader1 = new StreamReader(Path.Combine(System.Web.HttpContext.Current.Server.MapPath(@"~/EMAILS/Contact-prozect.html")));
+                    string readfile1 = reader1.ReadToEnd();
+                    string mystring1 = "";
+                    mystring1 = readfile1;
+                    mystring1 = mystring1.Replace("$$email$$", obj.CONTACT_EMAIL);
+                    mystring1 = mystring1.Replace("$$NAME$$", obj.CONTACT_NAME);
+                    mystring1 = mystring1.Replace("$$phone$$", obj.CONTACT_PHONENUMBER);
+                    mystring1 = mystring1.Replace("$$subject$$", obj.CONTACT_SUBJECT);
+                    mystring1 = mystring1.Replace("$$messgae$$", obj.CONTACT_MESSAGE);
+                    String FROMEMAIL = "vangasrinivas285@gmail.com";
+                    bool statusemail1 = BLL.sendemail(mystring1, "COntactus for prozector", "4seduservices@gmail.com", FROMEMAIL);
+
+
                     BLL.ShowMessage(this, "Thank you for contacting us, one of our executive will reach you soon");
                     clearcontrols();
                 }
@@ -75,27 +97,7 @@ namespace Zoyal
                     clearcontrols();
                 }
 
-                MailMessage mailmessage = new MailMessage();
-                mailmessage.IsBodyHtml = true;
-
-                SmtpClient client = new SmtpClient("linkskart.com");
-                client.Credentials = new System.Net.NetworkCredential("info@linkskart.com", ".santhu143");
-                mailmessage.From = new System.Net.Mail.MailAddress("info@linkskart.com");
-                // mailmessage.From = new MailAddress("santhosh@pragatipadh.com");
-                mailmessage.To.Add(dt_contact.Rows[0]["CONTACT_EMAIL"].ToString());
-                // mailmessage.CC.Add(emailid);
-                mailmessage.Subject = "your account is created";
-                mailmessage.Body = "<p> Dear " + dt_contact.Rows[0]["CONTACT_EMAIL"].ToString() + " " + ",<br /> <br />Your account is successfully created "  + " please <a href=\"http://www.linkskart.com\">Click Here</a> to visit LINKSKART.</p></div>";
-                client.EnableSsl = false;
-                try
-                {
-                    client.Send(mailmessage);
-                    //SmtpMail.Send(eMail);
-                }
-                catch (Exception ae)
-                {
-                    // Label1.Text = ae.Message;
-                }
+             
 
             }
             catch (Exception ex)
