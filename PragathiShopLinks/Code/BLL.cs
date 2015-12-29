@@ -78,10 +78,10 @@ namespace ZOYALTY.Code
             return str.Replace("'", "''");
         }
 
-        internal static bool INSERTCONTACT(CONTACTUS obj)
+        internal static DataTable INSERTCONTACT(CONTACTUS obj)
         {
-            bool status = false;
-            status = BLL.ExecuteNonQuery("EXEC USP_CONTACTUS @CONTACT_NAME='" + obj.CONTACT_NAME + "',@CONTACT_EMAIL='" + obj.CONTACT_EMAIL + "',@CONTACT_SUBJECT='" + obj.CONTACT_SUBJECT + "',@CONTACT_PHONENUMBER='" + obj.CONTACT_PHONENUMBER + "',@CONTACT_MESSAGE='" + obj.CONTACT_MESSAGE + "',@CONTACT_CREATEDBY=1,@CONTACT_MODIFIEDBY=1,@OPERATION='INSERTCONTACT'");
+            
+         DataTable status = BLL.ExecuteQuery("EXEC USP_CONTACTUS @OPERATION='INSERTCONTACT', @CONTACT_NAME='" + obj.CONTACT_NAME + "',@CONTACT_EMAIL='" + obj.CONTACT_EMAIL + "',@CONTACT_SUBJECT='" + obj.CONTACT_SUBJECT + "',@CONTACT_PHONENUMBER='" + obj.CONTACT_PHONENUMBER + "',@CONTACT_MESSAGE='" + obj.CONTACT_MESSAGE + "',@CONTACT_CREATEDBY=1,@CONTACT_MODIFIEDBY=1");
             return status;
         }
         internal static DataTable CONTACT_EMAIL(CONTACTUS obj)
@@ -90,10 +90,10 @@ namespace ZOYALTY.Code
             return dt;
         }
 
-        internal static bool INSERTPARTNER(PARTNERS obj)
+        internal static DataTable INSERTPARTNER(PARTNERS obj)
         {
-            bool status = false;
-            status = BLL.ExecuteNonQuery("EXEC USP_PARTNERS @PARTNER_NAME='" + obj.PARTNER_NAME + "',@PARTNER_EMAIL='" + obj.PARTNER_EMAIL + "',@PARTNER_PHONENUMBER='" + obj.PARTNER_PHONENUMBER + "',@PARTNER_SUBJECT='" + obj.PARTNER_SUBJECT + "',@PARTNER_MESSAGE='" + obj.PARTNER_MESSAGE + "',@PARTNER_CREATEDBY=1,@OPERATION='INSERTPARTNER'");
+            
+          DataTable  status = BLL.ExecuteQuery("EXEC USP_PARTNERS @PARTNER_NAME='" + obj.PARTNER_NAME + "',@PARTNER_EMAIL='" + obj.PARTNER_EMAIL + "',@PARTNER_PHONENUMBER='" + obj.PARTNER_PHONENUMBER + "',@PARTNER_SUBJECT='" + obj.PARTNER_SUBJECT + "',@PARTNER_MESSAGE='" + obj.PARTNER_MESSAGE + "',@PARTNER_CREATEDBY=1,@OPERATION='INSERTPARTNER'");
             return status;
         }
         internal static DataTable PARTNERE_MAIL(PARTNERS obj)
@@ -536,9 +536,9 @@ namespace ZOYALTY.Code
             DataTable DT = BLL.ExecuteQuery("EXEC USP_GETTINGLOCATIONS @OPERATION='GETLOCATION_BYID',@LOCATION_ID='" + obj.LOCATION_ID + "'");
             return DT;
         }
-        internal static bool insert_careers(careers obj)
+        internal static DataTable insert_careers(careers obj)
         {
-            bool status = BLL.ExecuteNonQuery("EXEC usp_careers @operation='insert',@fullname='" + obj.fullname + "',@email='" + obj.email + "',@phone='" + obj.phone + "',@position='" + obj.position + "'");
+            DataTable status = BLL.ExecuteQuery("EXEC usp_careers @operation='insert',@fullname='" + obj.fullname + "',@email='" + obj.email + "',@phone='" + obj.phone + "',@position='" + obj.position + "'");
             return status;
         }
 
