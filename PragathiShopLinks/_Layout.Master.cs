@@ -240,51 +240,38 @@ namespace Zoyal
                     if (dt_user.Rows.Count > 0)
 
                     { 
-                        StreamReader reader = new StreamReader(Path.Combine(System.Web.HttpContext.Current.Server.MapPath(@"~/EMAILS/signup.html")));
+                        StreamReader reader = new StreamReader(Path.Combine(System.Web.HttpContext.Current.Server.MapPath(@"~/EMAILS/sign.html")));
                             string readFile = reader.ReadToEnd();
                             string myString = "";
                             myString = readFile;
-                            myString = myString.Replace("$$EMAIL$$", obj.USER_EMAILID);
+                            myString = myString.Replace("$$email$$", obj.USER_EMAILID);
+                        myString = myString.Replace("$$name$$", obj.USER_FIRSTNAME);
                            
-                            bool statusemail = BLL.sendemail(myString, "SINUP", "support@chaloindia.net", obj.USER_EMAILID);
+                            bool statusemail = BLL.sendemail(myString, "SINUP", "4seduservices@gmail.com", obj.USER_EMAILID);
+                    
+                            StreamReader reader1 = new StreamReader(Path.Combine(System.Web.HttpContext.Current.Server.MapPath(@"~/EMAILS/signup-prozect.html")));
+                            string readfile1 = reader1.ReadToEnd();
+                            string mystring1 = "";
+                            mystring1 = readfile1;
+                            mystring1 = mystring1.Replace("$$email$$", obj.USER_EMAILID);
+                            mystring1 = mystring1.Replace("$$NAME$$", obj.USER_FIRSTNAME);
+                            mystring1 = mystring1.Replace("$$phone$$", obj.USER_PHONE);
+                            String FROMEMAIL = "vangasrinivas285@gmail.com";
+                            bool statusemail1 = BLL.sendemail(mystring1, "SINUP INFORMSTION FOPR USER", "4seduservices@gmail.com", FROMEMAIL);
 
-
-                        BLL.ShowMessage(this, "YOUR ACCOUNT SUCCESSFULLY CREATED");
-                        clearcontrols();
+                            BLL.ShowMessage(this, "YOUR ACCOUNT SUCCESSFULLY CREATED");
+                            clearcontrols();
+                        }
 
                     }
                        
-                    }
+                   
                     else
                     {
                         BLL.ShowMessage(this, "contact admin");
                     lbl_emailcheck.Visible = true;
                 }
-                
 
-
-
-                MailMessage maimessage = new MailMessage();
-                mailmessage.IsBodyHtml = true;
-
-                SmtpClient client = new SmtpClient("linkskart.com");
-                client.Credentials = new System.Net.NetworkCredential("info@linkskart.com", ".santhu143");
-                mailmessage.From = new System.Net.Mail.MailAddress("info@linkskart.com");
-                // mailmessage.From = new MailAddress("santhosh@pragatipadh.com");
-                mailmessage.To.Add(dt_user.Rows[0]["USER_EMAILID"].ToString());
-                // mailmessage.CC.Add(emailid);
-                mailmessage.Subject = "your account is created";
-                mailmessage.Body = "<p> Dear " + dt_user.Rows[0]["USER_EMAILID"].ToString() + " " + ",<br /> <br />Your account is successfully created " + " please <a href=\"http://www.linkskart.com\">Click Here</a> to visit LINKSKART.</p></div>";
-                client.EnableSsl = false;
-                try
-                {
-                    client.Send(mailmessage);
-                    //SmtpMail.Send(eMail);
-                }
-                catch (Exception ae)
-                {
-                    // Label1.Text = ae.Message;
-                }
             }
             catch (Exception ex)
             {
@@ -379,8 +366,9 @@ namespace Zoyal
                 string myString = "";
                 myString = readFile;
                 myString = myString.Replace("$$EMAIL$$", obj.USER_EMAILID);
+                    myString = myString.Replace("$$NAME$$", obj.USER_FIRSTNAME);
                 myString = myString.Replace("$$PASSWORD$$", BLL.Decrypt(dt_user.Rows[0]["USER_PASSWORD"].ToString()));
-                bool statusemail = BLL.sendemail(myString, "FORGOT PASSWORD-ZOYALTY", "support@chaloindia.net", obj.USER_EMAILID);
+                bool statusemail = BLL.sendemail(myString, "FORGOT PASSWORD-ZOYALTY"," 4seduservices@gmail.com", obj.USER_EMAILID);
                 }
                 else
                 {
