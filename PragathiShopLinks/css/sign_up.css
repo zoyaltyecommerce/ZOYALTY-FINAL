@@ -1,0 +1,14 @@
+		*{margin:0;padding:0;}
+		body{background:#f4f4f4;}
+		#page{width:60%;margin:10px auto;}
+		#header{height:auto;height:119px;}
+		#header img{width:100%;} 
+		#content{background:url(../mailimages/bg2.png)  repeat;
+			padding:30px 45px;
+		}
+		.cont_h1{padding:5px 0px;}
+		strong{line-height:3}
+		.clear{clear:both;}
+		#footer{background:#000;color:#fff;padding:10px;}
+		#footer p b{float:right;margin-right:35px;} 
+		#footer p a{float:left;text-decoration:none;color:yellow;margin-left:35px;}
