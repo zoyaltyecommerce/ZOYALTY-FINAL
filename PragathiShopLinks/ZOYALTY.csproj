@@ -762,7 +762,7 @@
     <Content Include="Admin\LESS\variables.less" />
     <Content Include="Careers.aspx" />
     <Content Include="create_new_user.aspx" />
-    <Content Include="css\jquery.timepicker.css" />
+    <Content Include="css\bootstrap-datepicker.css" />
     <Content Include="EMAILS\forgotpassword.html" />
     <Content Include="EMAILS\signup-pslteam.html" />
     <Content Include="EMAILS\signup.html" />
@@ -771,8 +771,9 @@
     <Content Include="Images\logo %284%29.png" />
     <Content Include="Images\logo %285%29.png" />
     <Content Include="Images\logo %286%29.png" />
-    <Content Include="js\jquery.timepicker.js" />
     <Content Include="Admin\location.aspx" />
+    <Content Include="index.aspx" />
+    <Content Include="js\theme.js" />
     <Content Include="mailimages\advt.png" />
     <Content Include="mailimages\bg1.png" />
     <Content Include="mailimages\bg2.png" />
@@ -792,6 +793,7 @@
     <Content Include="PRODUCT_IMG\Sound 01.jpg" />
     <Content Include="PRODUCT_IMG\Theare EXP.jpg" />
     <Content Include="shop-cart-full.aspx" />
+    <Content Include="terms_conditions.aspx" />
     <Content Include="vendor\flexslider\fonts\flexslider-icon.eot" />
     <Content Include="vendor\flexslider\fonts\flexslider-icon.ttf" />
     <Content Include="vendor\flexslider\fonts\flexslider-icon.woff" />
@@ -1104,7 +1106,6 @@
     <Content Include="Images\speakers.jpg" />
     <Content Include="js\bootstrap-datetimepicker.min.js" />
     <Content Include="js\contact.js" />
-    <Content Include="js\theme.js" />
     <Content Include="js\theme.plugins.js" />
     <Content Include="PRODUCT_IMG\AUTOMATIC.png" />
     <Content Include="PRODUCT_IMG\Decorative Bike.jpg" />
@@ -1174,7 +1175,6 @@
     <Content Include="index-3.html" />
     <Content Include="index-4.html" />
     <Content Include="index-white.html" />
-    <Content Include="index.aspx" />
     <Content Include="index2.aspx" />
     <Content Include="index3.aspx" />
     <Content Include="logincheck.aspx" />
@@ -1477,6 +1477,13 @@
     </Compile>
     <Compile Include="shop-cart-full.aspx.designer.cs">
       <DependentUpon>shop-cart-full.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="terms_conditions.aspx.cs">
+      <DependentUpon>terms_conditions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="terms_conditions.aspx.designer.cs">
+      <DependentUpon>terms_conditions.aspx</DependentUpon>
     </Compile>
     <Compile Include="testone.aspx.cs">
       <DependentUpon>testone.aspx</DependentUpon>
