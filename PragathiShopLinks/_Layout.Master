@@ -258,8 +258,8 @@
                                     <h2>Quick Links</h2>
                                     <ul class="list-unstyled">
                                         
-                                        <li><a href="#">Terms and Conditions</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="terms_conditions.aspx">Terms and Conditions</a></li>
+                                        <li><a href="terms_conditions.aspx">Privacy Policy</a></li>
 
                                     </ul>
                                 </div>
