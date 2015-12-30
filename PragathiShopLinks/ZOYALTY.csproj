@@ -763,9 +763,14 @@
     <Content Include="Careers.aspx" />
     <Content Include="create_new_user.aspx" />
     <Content Include="css\bootstrap-datepicker.css" />
+    <Content Include="EMAILS\CAREER-PROZECT.html" />
+    <Content Include="EMAILS\CAREER.html" />
+    <Content Include="EMAILS\Contact-prozect.html" />
+    <Content Include="EMAILS\Contacts.html" />
     <Content Include="EMAILS\forgotpassword.html" />
-    <Content Include="EMAILS\signup-pslteam.html" />
-    <Content Include="EMAILS\signup.html" />
+    <Content Include="EMAILS\partner-prozect.html" />
+    <Content Include="EMAILS\partnerwithus.html" />
+    <Content Include="EMAILS\sign.html" />
     <Content Include="Images\logo %282%29.png" />
     <Content Include="Images\logo %283%29.png" />
     <Content Include="Images\logo %284%29.png" />
