@@ -53,9 +53,7 @@ namespace Zoyal
                     
                     String FROMEMAIL = "vangasrinivas285@gmail.com";
                     bool statusemail1 = BLL.sendemail(mystring1, "COntactus for prozector", "4seduservices@gmail.com", FROMEMAIL);
-
-
-
+                   
                     clearcontrol();
                     BLL.ShowMessage(this, "Your Applied Successfully");
                 }
