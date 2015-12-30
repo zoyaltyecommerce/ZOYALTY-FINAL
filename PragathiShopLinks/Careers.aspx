@@ -72,12 +72,11 @@ Come ! Be part of change !</p>
                         
                  <tr><td> <label>Email</label></td><td><asp:TextBox ID="txt_email" runat="server" CssClass="form-control"></asp:TextBox></td>
                    
-                    
                       
                         
-                 <td><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_email" ErrorMessage="please enter your Email"></asp:RequiredFieldValidator></td>  
-             
-                 <td> <asp:RegularExpressionValidator ID="req_email" runat="server" 
+                 <td><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_email" ErrorMessage="please enter your Email"></asp:RequiredFieldValidator>
+             </br>
+                <asp:RegularExpressionValidator ID="req_email" runat="server" 
        ErrorMessage="Enter a valid email address"
        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" 
        ControlToValidate="txt_email" ForeColor="Red" >
@@ -87,7 +86,7 @@ Come ! Be part of change !</p>
                      
               <tr><td> <label> Contact NO:</label></td><td>  <asp:TextBox ID="txt_contactno" runat="server" CssClass="form-control"></asp:TextBox></td>
                     
-                      
+                  &nbsp&nbsp
                     <td><asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txt_contactno" ErrorMessage="please enter your contact no"></asp:RequiredFieldValidator></td>  
                   
                        
