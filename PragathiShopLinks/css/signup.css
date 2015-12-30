@@ -1,0 +1,81 @@
+*{
+	margin:0;
+	padding:0;	
+}
+body {
+   font:14px/1.6 arial;
+   background: #f4f4f4;
+}
+#page{
+	width:820px;
+	margin:0 auto;
+}
+#header{
+	position: relative;
+	height:120px;
+}
+#content {
+    padding: 10px 20px 40px 70px;
+    background-image: url('../../Images/bg2.png');
+} 
+#content .message{
+	padding:25px 10px;
+}
+#content .message h1{
+    color: #F60;
+    padding:0 0px 15px 0 ;
+} 
+#content .message h1 img{
+	position: relative;
+	right:0px;
+	top:12px;
+	width:40px;
+	height:40px;
+}
+#content .message h1 span{
+	padding:25px 20px;
+	height: 50px;
+	border-radius: 65px;
+	position: relative;
+    right: 18px;
+    background-color: #4b4b4b;
+}
+.email p{
+	line-height: 1.6;
+	padding: 10px 0px;
+}
+.email a{
+	display: block;
+	padding: 5px 0px;
+}
+.email b{
+	color:#3466a5;;
+}
+#footer{
+	background: #336106;
+	height:35px;
+}
+#footer .ft_cont{
+	float:left;
+	font-size: 14px;
+	padding: 0px 5px 0 20px;
+}
+#footer a{
+	color: #FC3;
+    text-decoration: none;
+}
+#footer p{
+    width: 260px;
+    font-family: calibri;
+    font-size: 14px;
+    color: #FFF;
+    float: right;
+    padding: 8px 0px 0 0;
+}
+#footer .ft_cr{
+	float: right;
+	margin-left:10px;
+}
+.clear{
+	clear:both;
+}
