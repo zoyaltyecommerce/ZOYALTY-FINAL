@@ -380,7 +380,7 @@
                                         <tr class='cart_table_item'>
                                             <td class='product-thumbnail'>
                                                 <a href='shop-product-sidebar.html'>
-                                                    <img alt='' width='80' src='images/content/products/product-thumb.jpg'></a>
+                                                    <img alt='' width='80' src='images/content/products/product-thumb.jpg'/></a>
                                             </td>
                                             <td class='product-name'>
                                                 <a href='shop-product-sidebar.html'>Linen shirt with ribbon at the front</a>
@@ -390,7 +390,7 @@
                                             </td>
                                             <td class='product-quantity'>
                                                 <div class='quantity'>
-                                                    <input type='button' class='minus' value='-'><input type='text' class='input-text qty text' title='Qty' value='1' name='quantity' min='1' step='1'>
+                                                    <input type='button' class='minus' value='-'><input type='text' class='input-text qty text' title='Qty' value='1' name='quantity' min='1' step='1'/>
                                                     <input type='button' class='plus' value='+'>
                                                 </div>
                                             </td>
