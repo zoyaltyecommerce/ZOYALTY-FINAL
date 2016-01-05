@@ -19,6 +19,8 @@ namespace PragathiShopLinks.Admin
                 tele_types.DataBind();
                 div_types.Visible = true;
                 div_addtype.Visible = false;
+                div_addsubtype.Visible = false;
+                div_subtypes.Visible = false;
             }
         }
 
@@ -141,6 +143,165 @@ namespace PragathiShopLinks.Admin
         public void clearcontrols()
         {
             txt_typename.Text = "";
+        }
+
+        protected void lnk_assignsubtype_Command(object sender, CommandEventArgs e)
+        {
+            int id =  Convert.ToInt32( e.CommandArgument.ToString());
+            hid_value.Value = e.CommandArgument.ToString();
+            productsubtype obj = new productsubtype();
+            obj.TYPE_MAINTYPEID = id;
+            DataTable dt_subtypes = BLL.GETSUBTYPESBYTYPEID(obj);
+            tele_subtypes.DataSource = dt_subtypes;
+            tele_subtypes.DataBind();
+            div_subtypes.Visible = true;
+            div_types.Visible = false;
+
+             
+
+        }
+
+        protected void tele_subtypes_NeedDataSource(object sender, Telerik.Web.UI.GridNeedDataSourceEventArgs e)
+        {
+
+        }
+
+        protected void lnk_editsubtype_Command(object sender, CommandEventArgs e)
+        {
+            try 
+            {
+                Hidd_SUBTYPE_OPRTN.Value = "update";
+                Hidd_subtype_value.Value = e.CommandArgument.ToString();
+                int subtype_id = Convert.ToInt32(e.CommandArgument);
+                productsubtype obj=new productsubtype();
+                obj.TYPE_ID=subtype_id;
+                DataTable dt_subtype=BLL.GETSUBTYPESBYID(obj);
+
+                txt_subtype.Text=dt_subtype.Rows[0]["TYPE_NAME"].ToString();
+                div_addsubtype.Visible=true;
+                div_addtype.Visible=false;
+                div_subtypes.Visible = false;
+                
+            }
+            catch(Exception ex)
+            {
+
+            }
+        }
+
+        //protected void lnk_subtypedelete_Command(object sender, CommandEventArgs e)
+        //{
+        //    try
+        //    {
+        //        int id = Convert.ToInt32(e.CommandArgument);
+        //        productsubtype obj = new productsubtype();
+        //        obj.TYPE_ID = id;
+        //        bool status = BLL.DELETESUBTYPE(obj);
+        //        if (status == true)
+        //        {
+        //            int main_typeid = Convert.ToInt32(hid_value.Value);
+        //            obj.TYPE_MAINTYPEID = main_typeid;
+        //            DataTable dt_subtypes = BLL.GETSUBTYPESBYTYPEID(obj);
+        //            tele_subtypes.DataSource = dt_subtypes;
+        //            tele_subtypes.DataBind();
+        //            div_types.Visible = false;
+        //            div_subtypes.Visible = true;
+        //        }
+        //        else
+        //        {
+        //            BLL.ShowMessage(this, "Contact Administrator");
+        //        }
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+ 
+        //    }
+        //}
+
+        protected void btn_save_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool status = false;
+                productsubtype obj = new productsubtype();
+                obj.TYPE_NAME = BLL.ReplaceQuote(txt_subtype.Text);
+                if (Hidd_SUBTYPE_OPRTN.Value == "update")
+                {
+                    obj.TYPE_ID = Convert.ToInt32(Hidd_subtype_value.Value);
+                    status = BLL.UPDATE_SUBTYPE(obj);
+                }
+                else if (Hidd_SUBTYPE_OPRTN.Value == "save")
+                {
+                    obj.TYPE_MAINTYPEID = Convert.ToInt32(hid_value.Value);
+                    status = BLL.INSERT_SUBTYPE(obj);
+                }
+                if (status == true)
+                {
+                    int main_typeid = Convert.ToInt32(hid_value.Value);
+                    obj.TYPE_MAINTYPEID = main_typeid;
+                    DataTable dt_subtype = BLL.GETSUBTYPESBYTYPEID(obj);
+                    tele_subtypes.DataSource = dt_subtype;
+                    tele_subtypes.DataBind();
+                    div_subtypes.Visible = true;
+                    div_types.Visible = false;
+                    div_addsubtype.Visible = false;
+                    BLL.ShowMessage(this, "SUB TYPE CREATED SUCCESSFULLY");
+                }
+                else
+                {
+                    BLL.ShowMessage(this, "CONTACT ADMINISTRATOR");
+                }
+            }
+            catch (Exception EX)
+            {
+ 
+            }
+        }
+
+        protected void lnk_suntype_Click(object sender, EventArgs e)
+        {
+            txt_subtype.Text = "";
+            Hidd_SUBTYPE_OPRTN.Value = "save";
+            Hidd_subtype_value.Value = "";
+            div_addsubtype.Visible = true;
+            div_addtype.Visible = false;
+            div_subtypes.Visible = false;
+        }
+
+       
+
+       
+
+        protected void lnk_dete_Command(object sender, CommandEventArgs e)
+        {
+            try
+            {
+                int id = Convert.ToInt32(e.CommandArgument);
+                productsubtype obj = new productsubtype();
+                obj.TYPE_ID = id;
+                bool status = BLL.DELETESUBTYPE(obj);
+                if (status == true)
+                {
+                    int main_typeid = Convert.ToInt32(hid_value.Value);
+                    obj.TYPE_MAINTYPEID = main_typeid;
+                    DataTable dt_subtypes = BLL.GETSUBTYPESBYTYPEID(obj);
+                    tele_subtypes.DataSource = dt_subtypes;
+                    tele_subtypes.DataBind();
+                    div_types.Visible = false;
+                    div_subtypes.Visible = true;
+                    div_addsubtype.Visible = false;
+                }
+                else
+                {
+                    BLL.ShowMessage(this, "Contact Administrator");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }
