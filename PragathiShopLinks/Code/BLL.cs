@@ -573,6 +573,89 @@ namespace ZOYALTY.Code
             return status;
 
         }
+        internal static DataTable GETSUBTYPESBYTYPEID(productsubtype obj)
+        {
+
+            DataTable DT = BLL.ExecuteQuery("EXEC usp_subtype @OPERATION='selectsubtypebyid',@type_maintypeid='" + obj.TYPE_MAINTYPEID + "'");
+            return DT;
+        }
+        internal static DataTable GETSUBTYPESBYID(productsubtype obj)
+        {
+
+            DataTable DT = BLL.ExecuteQuery("EXEC usp_subtype @OPERATION='selectsubtype',@type_id='" + obj.TYPE_ID + "'");
+            return DT;
+        }
+        internal static bool DELETESUBTYPE(productsubtype obj)
+        {
+
+            bool status = BLL.ExecuteNonQuery("EXEC usp_subtype @OPERATION='deletesubtype',@type_id='" + obj.TYPE_ID + "'");
+            return status;
+        }
+        internal static bool UPDATE_SUBTYPE(productsubtype obj)
+        {
+
+            bool status = BLL.ExecuteNonQuery("EXEC usp_subtype @OPERATION='updatesubtype',@type_id='" + obj.TYPE_ID + "',@type_name='" + obj.TYPE_NAME + "'");
+            return status;
+        }
+        internal static bool INSERT_SUBTYPE(productsubtype obj)
+        {
+
+            bool status = BLL.ExecuteNonQuery("EXEC usp_subtype @OPERATION='insertsubtype',@type_name='" + obj.TYPE_NAME + "',@type_maintypeid='" + obj.TYPE_MAINTYPEID + "',@type_status=1");
+            return status;
+        }
+
+
+
+
+        internal static DataTable SELECT_MASTERPRODUCT()
+        {
+
+            DataTable dt_master = BLL.ExecuteQuery("EXEC usp_masterproduct @OPERATION='SELECT_MASTERPRODUCT'");
+            return dt_master;
+        }
+        internal static DataTable select_mastreproductbyid(int id)
+        {
+            DataTable dt_master = BLL.ExecuteQuery("EXEC usp_masterproduct @OPERATION='addtolive',@MPRODUCT_ID='" + id + "'");
+            return dt_master;
+        }
+        internal static bool insertproduct(PRODUCT obj)
+        {
+            bool status = BLL.ExecuteNonQuery("EXEC usp_products @OPERATION='producttypesadd',@PRODUCT_TYPEID='" + obj.PRODUCT_TYPEID + "',@PRODUCT_SUBTYPEID='" + obj.PRODUCT_SUBTYPEID + "',@PRODUCT_NAME='" + obj.PRODUCT_NAME + "',@PRODUCT_CITYID='" + obj.PRODUCT_CITYID + "',  @PRODUCT_DESC='" + obj.PRODUCT_DESC + "',@PRODUCT_IMAGEURL='" + obj.PRODUCT_IMAGEURL + "',@PRODUCT_IMAGETITLE='" + obj.PRODUCT_IMAGETITLE + "',@PRODUCT_CREATEDBY=1, @PRODUCT_STATUS=1, @PRODUCT_TITLE='" + obj.PRODUCT_TITLE + "',  @PRODUCT_PRICE='" + obj.PRODUCT_PRICE + "',@PRODUCT_MASTERTYPEID='" + obj.PRODUCT_MASTERTYPEID + "'");
+            return status;
+        }
+
+        internal static DataTable GETPRODUCTBYMASTERID(int id)
+        {
+            DataTable dt_master = BLL.ExecuteQuery("EXEC usp_products @OPERATION='SELECTPRODUCTBYMASTERID',@PRODUCT_MASTERTYPEID='" + id + "'");
+            return dt_master;
+        }
+        internal static bool UPDATEPRODUCTTYPES(PRODUCT OBJ, int id)
+        {
+            bool status = BLL.ExecuteNonQuery("EXEC usp_products @OPERATION='UPDATEPRODUCTTYPES',@PRODUCT_TYPEID='" + OBJ.PRODUCT_TYPEID + "',@PRODUCT_SUBTYPEID='" + OBJ.PRODUCT_SUBTYPEID + "',@PRODUCT_PRICE='" + OBJ.PRODUCT_PRICE + "',@PRODUCT_ID='" + id + "'");
+            return status;
+        }
+        internal static DataTable SELECTPRODUCTBYID(int id)
+        {
+            DataTable dt_product = BLL.ExecuteQuery("EXEC USP_PRODUCTS @OPERATION='SELECTBYPRODUCTID',@PRODUCT_ID='" + id + "'");
+            return dt_product;
+        }
+        internal static bool DELETEMASTERPRODUCT(int id)
+        {
+            bool status = BLL.ExecuteNonQuery("EXEC USP_MASTERPRODUCT @OPERATION='DELETEPRODUCT',@MPRODUCT_ID='" + id + "'");
+            return status;
+
+        }
+        internal static bool updatemproduct(MASTERPRODUCT obj, int ID)
+        {
+            bool status = BLL.ExecuteNonQuery("EXEC USP_MASTERPRODUCT @OPERATION='UPDATEMASTERPRODUCT', @MPRODUCT_NAME='" + obj.MPRODUCT_NAME + "',@MPRODUCT_DESC='" + obj.MPRODUCT_DESC + "',@MPRODUCT_IMAGEURL='" + obj.MPRODUCT_IMAGEURL + "',@MPRODUCT_IMAGETITLE='" + obj.MPRODUCT_IMAGETITLE + "',@MPRODUCT_CITYID='" + obj.MPRODUCT_CITYID + "',@MPRODUCT_ID='" + ID + "'");
+            return status;
+        }
+
+        internal static bool updatepro(PRODUCT OBJ, int ID)
+        {
+            bool status = BLL.ExecuteNonQuery("EXEC USP_PRODUCTS @OPERATION='upadete_pro',@PRODUCT_NAME='" + OBJ.PRODUCT_NAME + "',@PRODUCT_IMAGETITLE='" + OBJ.PRODUCT_IMAGETITLE + "',@PRODUCT_DESC='" + OBJ.PRODUCT_DESC + "',@PRODUCT_TITLE='" + OBJ.PRODUCT_TITLE + "',@PRODUCT_CITYID='" + OBJ.PRODUCT_CITYID + "',@PRODUCT_MASTERTYPEID='" + ID + "',@PRODUCT_IMAGEURL='" + OBJ.PRODUCT_IMAGEURL + "'");
+            return status;
+        }
 
     }
 }

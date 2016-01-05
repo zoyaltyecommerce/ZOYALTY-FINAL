@@ -311,6 +311,9 @@ namespace ZOYALTY.Code
         public string PRODUCT_TITLE { get; set; }
         public int PRODUCT_CITYID { set; get; }
         public Decimal PRODUCT_PRICE { set; get; }
+        public int PRODUCT_MASTERTYPEID { set; get; }
+        public int PRODUCT_SUBTYPEID { set; get; }
+        public int PRODUCT_TYPEID { set; get; }
     }
     public class SHIPPINGADDRESS : SMVTS_MAIN
     {
@@ -498,6 +501,34 @@ namespace ZOYALTY.Code
         public string email { get; set; }
         public string position { get; set; }
         public string phone { get; set; }
+    }
+    public class productsubtype : SMVTS_MAIN
+    {
+
+        public int TYPE_ID { get; set; }
+        public int TYPE_MAINTYPEID { get; set; }
+        public string TYPE_NAME { get; set; }
+        public DateTime TYPE_CREATEDDATE { get; set; }
+        public int TYPE_CREATEDBY { get; set; }
+        public DateTime TYPE_MODIFIEDDATE { get; set; }
+        public int TYPE_MODIFIEDBY { get; set; }
+        public int type_status { get; set; }
+    }
+    public class MASTERPRODUCT : SMVTS_MAIN
+    {
+        public int MPRODUCT_ID { get; set; }
+        public string MPRODUCT_NAME { get; set; }
+        public string MPRODUCT_DESC { get; set; }
+        public string MPRODUCT_IMAGEURL { get; set; }
+        public string MPRODUCT_IMAGETITLE { get; set; }
+        public int MPRODUCT_STATUS { get; set; }
+        public string MPRODUCT_TITLE { get; set; }
+        public int MPRODUCT_CITYID { get; set; }
+        public int MPRODUCT_CREATEDBY { get; set; }
+        public DateTime MPRODUCT_CREATEDDATE { get; set; }
+        public int MPRODUCT_MODIFIEDBY { get; set; }
+        public DateTime MPRODUCT_MODIFIEDDATE { get; set; }
+
     }
 
 }
