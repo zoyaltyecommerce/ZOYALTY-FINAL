@@ -63,7 +63,7 @@
                     <a href="salesreport.aspx"><i class="fa fa-diamond"></i> <span class="nav-label">Sales Reports</span></a>
                 </li>
                  <li id="li_pro_details"  runat="server">
-                    <a href="product_details.aspx"><i class="fa fa-diamond"></i> <span class="nav-label">Product details</span></a>
+                    <a href="masterproduct.aspx"><i class="fa fa-diamond"></i> <span class="nav-label">Product details</span></a>
                 </li>
                   <li id="li_my_pro"  runat="server">
                     <a href="personaldetails.aspx"><i class="fa fa-diamond"></i> <span class="nav-label">Myprofile</span></a>
@@ -84,7 +84,7 @@
                     <a href="types.aspx"><i class="fa fa-diamond"></i> <span class="nav-label">Types</span></a>
 
                 </li>
-                
+               
                
             </ul>
 

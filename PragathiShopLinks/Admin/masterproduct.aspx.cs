@@ -22,7 +22,9 @@ namespace PragathiShopLinks.Admin
                 div_update.Visible = false;
                 div_product.Visible = false;
                 div_updatemaster.Visible = false;
-                
+                insert_product.Visible =false;
+
+
                 DataTable dt_types = BLL.SELECTTYPES();
                 drp_types.DataSource = dt_types;
 
@@ -42,6 +44,13 @@ namespace PragathiShopLinks.Admin
                  drp_city.DataValueField = "city_id";
                  drp_city.DataBind();
 
+                cities obj1 = new cities();
+                drp_cityi.DataSource = BLL.GETCITIES(obj);
+                drp_cityi.DataTextField = "city_name";
+                drp_cityi.DataValueField = "city_id";
+                drp_cityi.DataBind();
+
+
             }
         }
         public void loadproduct()
@@ -50,6 +59,7 @@ namespace PragathiShopLinks.Admin
             {
                 DataTable dt_master = BLL.SELECT_MASTERPRODUCT();
                 tele_masterprdct.DataSource = dt_master;
+                tele_masterprdct.DataBind();
 
 
             }
@@ -443,5 +453,77 @@ namespace PragathiShopLinks.Admin
             }
         }
 
+        protected void save_Click(object sender, EventArgs e)
+        {
+
+            string path = "";
+            try
+            {
+                if (product_imgi.HasFile)
+                {
+                    string str = product_imgi.FileName;
+                    // product_img.PostedFile.SaveAs(Server.MapPath(".") + "\\PRODUCT_IMGES\\" + str);
+                    product_imgi.SaveAs(Server.MapPath(@"\PRODUCT_IMG\" + str));
+                    path = "/PRODUCT_IMG/" + str.ToString();
+                }
+                //else 
+                //{
+                //    lbl.Text = "please upload your image";
+                //}
+
+
+
+
+                MASTERPRODUCT OBJ = new MASTERPRODUCT();
+                OBJ.MPRODUCT_CITYID = Convert.ToInt32(drp_cityi.SelectedItem.Value);
+                OBJ.MPRODUCT_NAME = BLL.ReplaceQuote(txt_namei.Text);
+                OBJ.MPRODUCT_DESC = BLL.ReplaceQuote(txt_desci.Text);
+                OBJ.MPRODUCT_IMAGETITLE = BLL.ReplaceQuote(txt_imgtitlei.Text);
+                OBJ.MPRODUCT_TITLE = BLL.ReplaceQuote(txt_producttitle.Text);
+                OBJ.MPRODUCT_IMAGEURL = path;
+
+                bool STATUS = BLL.insert_masterproduct(OBJ);
+                if(STATUS==true)
+                {
+                    div_masterprdct.Visible = true;
+                    insert_product.Visible = false;
+
+                    BLL.ShowMessage(this, "PRODUCT SAVE SUCCESSFULLY");
+                    loadproduct();
+                    clear_controls();
+                }
+                else
+                {
+                    BLL.ShowMessage(this, "PRODUCT_INSERT FAILED");
+                }
+
+
+            }
+            catch(Exception EX)
+            {
+                
+            }
+
+
+
+
+
+
+
+        }
+        public void clear_controls()
+        {
+            txt_desci.Text = "";
+            txt_imgtitlei.Text = "";
+            txt_namei.Text = "";
+            txt_producttitle.Text = "";
+            drp_cityi.ClearSelection();
+        }
+
+        protected void addproduct_Click(object sender, EventArgs e)
+        {
+            insert_product.Visible = true;
+            div_masterprdct.Visible =false;
+        }
     }
 }

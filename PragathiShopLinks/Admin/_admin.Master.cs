@@ -43,6 +43,7 @@ namespace Zoyal.Admin
                     li_CITY.Visible = true;
                     li_coupon.Visible = true;
                     li_types.Visible = true;
+                 
                     login_name.InnerHtml = adminname;
 
                 }
@@ -62,6 +63,7 @@ namespace Zoyal.Admin
                     li_CITY.Visible = false;
                     li_coupon.Visible =false;
                     li_types.Visible = false;
+                    
 
                     login_name.InnerHtml = vendorname;
                 }

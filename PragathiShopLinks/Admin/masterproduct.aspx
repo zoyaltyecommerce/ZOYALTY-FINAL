@@ -25,6 +25,14 @@
   
 
     <div id="div_masterprdct" runat="server">
+         <table  style="margin-left:400px">
+          <tr>
+              <td>  <asp:LinkButton ID="addproduct" runat="server" Text="ADD TYPE"  CssClass ="btn btn-primary" OnClick="addproduct_Click"></asp:LinkButton></td>
+          </tr>
+
+      </table>
+
+
 
 
          <telerik:RadGrid  ID="tele_masterprdct" runat="server" AllowFilteringByColumn="True" FilterMenu-EnableTextHTMLEncoding="false"
@@ -308,6 +316,70 @@
 
 
 
+    </div>
+    <div id="insert_product" runat="server">
+          <h2  style="color:blue">ADD PRODUCTS</h2>
+    <table>
+        <tr>
+            <td>Select City</td>
+            <td><asp:DropDownList ID="drp_cityi" runat="server" AutoPostBack="true"   Width="250px" Height="30px"  AppendDataBoundItems="true">
+                <asp:ListItem Text="-Select city-" />
+                </asp:DropDownList></td>
+            <td><asp:RequiredFieldValidator ID="drpcity" runat="server" ControlToValidate="drp_cityi" InitialValue="-Select city-" ErrorMessage="Please Select City" ForeColor="Red"></asp:RequiredFieldValidator></td>
+             
+
+             
+        </tr>
+        <tr><td>&nbsp</td></tr>
+        <tr>
+        <td>Product Name:</td>
+            <td><asp:TextBox ID="txt_namei" runat="server" CssClass="form-control"></asp:TextBox></td>
+            <td><asp:RequiredFieldValidator ID="req1" runat="server" ControlToValidate="txt_namei" ErrorMessage="please enter name"></asp:RequiredFieldValidator></td>
+        </tr>
+        <tr><td>&nbsp</td></tr>
+        <tr>
+            <td>Product Description</td>
+            <td> <asp:TextBox ID="txt_desci" runat="server"  CssClass="form-control"></asp:TextBox></td>
+            <td><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txt_desci" ErrorMessage="please enter product description"></asp:RequiredFieldValidator></td>
+        </tr>
+        <tr><td>&nbsp</td></tr>
+    <tr>
+        <td>Upload image</td>
+        <td>  <asp:FileUpload ID="product_imgi" runat="server" /></td>
+        <td><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="product_imgi" ErrorMessage="please select image"></asp:RequiredFieldValidator></td>
+
+    </tr>
+        <tr><td>&nbsp</td></tr>
+   <tr>
+       <td>Product Image title</td>
+       <td> <asp:TextBox ID="txt_imgtitlei" runat="server" CssClass="form-control"></asp:TextBox></td>
+       <td><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txt_imgtitlei" ErrorMessage="please enter image Title"></asp:RequiredFieldValidator></td>
+   </tr>
+        <tr><td>&nbsp</td></tr>
+     
+        <tr><td>&nbsp</td></tr>
+       <tr>
+           <td>product title</td>
+           <td> <asp:TextBox ID="txt_producttitle" runat="server" CssClass="form-control"></asp:TextBox></td>
+           <td> <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txt_producttitle" ErrorMessage="Please Enter Product Title"></asp:RequiredFieldValidator></td>
+          
+        </tr>
+        <tr><td>&nbsp</td></tr>
+
+        </table> 
+        <table style="margin-left:20px">
+         <tr>
+             <td>
+            <asp:Button ID="save" class="btn btn-primary" runat="server" Text="Save" OnClick="save_Click"/>
+           </td>
+           <td> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>  
+               <td>
+        
+          
+           <a href="masterproduct.aspx" runat="server" class="btn btn-primary" >Cancel</a>
+              </td>
+             </tr>
+         </table>
     </div>
 
 
