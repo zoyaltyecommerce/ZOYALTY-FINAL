@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/_Layout.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="Zoyal.index" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta name="keywords" content="Zoyalty" />
     <meta name="description" content="Zoyalty">
     <meta name="author" content="konnectsu.com">
@@ -16,19 +16,19 @@
     <!-- Icon Fonts -->
     <link href="css/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
     <script src="Scripts/jquery-1.8.2.min.js"></script>
-    <!-- Owl Carousel Assets -->  
-   <%-- <link href="vendor/theme-elements.css" rel="stylesheet"> --%>
+    <!-- Owl Carousel Assets -->
+    <%-- <link href="vendor/theme-elements.css" rel="stylesheet"> --%>
     <link href="vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
     <link href="vendor/owl-carousel/owl.theme.css" rel="stylesheet">
     <link href="vendor/owl-carousel/owl.transitions.css" rel="stylesheet">
-        <script src="vendor/owl-carousel/owl.carousel.js"></script>
+    <script src="vendor/owl-carousel/owl.carousel.js"></script>
 
-    <!-- bxslider --> 
+    <!-- bxslider -->
     <link href="vendor/bxslider/jquery.bxslider.css" rel="stylesheet">
     <!-- flexslider -->
     <link rel="stylesheet" href="vendor/flexslider/flexslider.css" media="screen">
     <!-- Theme -->
-    <link href="css/theme-animate.css" rel="stylesheet"> 
+    <link href="css/theme-animate.css" rel="stylesheet">
     <link href="css/theme-elements.css" rel="stylesheet">
     <link href="css/theme-blog.css" rel="stylesheet">
     <link href="css/theme-shop.css" rel="stylesheet">
@@ -53,19 +53,23 @@
         .form-control {
             height: 27px;
         }
-    .sleft{
-        float:left;
-    }
-    .sright{
-        height:20px;
-         width: 106px;
-         float:right;
-    }
-       
-    </style>
- 
-    <script type="text/javascript">
 
+        .sleft {
+            float: left;
+        }
+
+        .sright {
+            height: 20px;
+            width: 106px;
+            float: right;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function addtoc()
+        {
+            location.href = "shop-cart-full.aspx?id=" + document.getElementById("hid_prodid").value + "";
+        }
         //document.getElementById('resb').style.display = 'none';
         function delete_cartitem(id) {
             debugger;
@@ -84,8 +88,51 @@
 
             alert(response);
         }
+        function AddtoCartProduct(productid, cityid, typeoneid, typetwoid, price) {
+            debugger;
+            PageMethods.WEBGETPRODUCTDETAILS(productid + ',' + cityid + ',' + typeoneid + ',' + typetwoid + ',' + price, OnSuccessgetproduct, onfailuregetproduct)
+        }
+        function OnSuccessgetproduct(result) {
+            if (result != "error") {
+                debugger;
+                var res = result.split("$");
+                document.getElementById("hid_prodid").value = res[11];
+                document.getElementById("hid_masterprodid").value = res[12];
+                document.getElementById("li_productimage").innerHTML = "<img id='img_popproduct' alt='' class='imaheight' src='" + res[2] + "' />";
+                document.getElementById("h_popproname").innerHTML = res[0];
+              
+                document.getElementById("s_popproamount").innerHTML = res[4]+"&nbsp;RS";
+                if (res[6] == "" && res[7] == "") {
+                    
+                    document.getElementById("ul_drops").style.display = "none";
+                    document.getElementById("li_primarydrop").style.display = "none";
+                    document.getElementById("li_secondarydrop").style.display = "none";
+
+                }
+                else if (res[6] != "" & res[7] != "") {
+                    document.getElementById("ul_drops").style.display = "block";
+                    document.getElementById("li_primarydrop").style.display = "block";
+                    document.getElementById("li_secondarydrop").style.display = "block";
+                    document.getElementById('select_popprimarytype').innerHTML = res[9];
+                    document.getElementById('select_popsectype').innerHTML = res[10];
+                }
+                else if (res[6] != "") {
+                    document.getElementById("ul_drops").style.display = "block";
+                    document.getElementById("li_primarydrop").style.display = "block";
+                    document.getElementById("li_secondarydrop").style.display = "none";
+                    document.getElementById('select_popprimarytype').innerHTML = res[9];
+                }
+                document.getElementById("p_popdesc").innerHTML = res[1];
+                $('.quickview-wrapper').modal('show');
+
+            }
+
+        }
+        function onfailuregetproduct() {
+
+        }
     </script>
-    
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script>
@@ -93,6 +140,8 @@
             document.getElementById("li_home").className = "active";
         });
     </script>
+    <input type="hidden" id="hid_prodid" />
+    <input type="hidden" id="hid_masterprodid" />
     <div role="main" class="main">
         <!-- Begin Main Slide -->
         <section class="main-slide">
@@ -139,7 +188,7 @@
             </div>
         </section>
         <!-- End Main Slide -->
-   <%--     <section style="margin-top: 10px; margin-bottom: 10px">
+        <%--     <section style="margin-top: 10px; margin-bottom: 10px">
             <div class="row">
                 <div class="col-md-12" style="text-align: center; align-content: center; align-items: center">
                     <div class="container" style="background-color: #333333; padding-bottom: 10px">
@@ -177,7 +226,7 @@
 <cc1:CalendarExtender ID="Calendar1" PopupButtonID="imgPopup" runat="server" TargetControlID="txt_startdate"
     Format="dd/MM/yyyy">
 </cc1:CalendarExtender>--%>
-<%--                                    <asp:TextBox ID="txt_enddate" runat="server" placeholder="End Date" style="float: none !important; padding-top: 7px;" class="form-control" name="date_input"  ></asp:TextBox>
+        <%--                                    <asp:TextBox ID="txt_enddate" runat="server" placeholder="End Date" style="float: none !important; padding-top: 7px;" class="form-control" name="date_input"  ></asp:TextBox>
                                     
                                     <span class="input-group-addon" style="height: 27px; padding: 5px 9px">
                                         <span class="glyphicon glyphicon-calendar"></span>
@@ -244,13 +293,65 @@
                 <h2 class="title"><span>Products</span></h2>
                 <div class="row">
 
-                    <div id="product_img" runat="server" >
-                       
-                        <div class='col-md-3 animation'><div class='item product'><div class='product-thumb-info'><div class='product-thumb-info-image'><span class='product-thumb-info-act'><a href='shop-cart-full.html' class='add-to-cart-product' > <span><i class='fa fa-shopping-cart'></i></span></a> </span><img alt='' class='imaheight'  class='img-responsive' src='PRODUCT_IMG/AUTOMATIC.png'></div><div class='product-thumb-info-content'><span class='price pull-right'>29.99 USD</span><h4><a href='shop-product-detail2.html'>Denim shirt</a></h4> <span class='item-cat'><small><a href='#'>Jackets</a></small></span></div></div></div></div>
-                        <div class='col-md-3 animation'><div class='item product'><div class='product-thumb-info'><div class='product-thumb-info-image'><span class='product-thumb-info-act'><a href='shop-cart-full.html' class='add-to-cart-product' > <span><i class='fa fa-shopping-cart'></i></span></a> </span><img alt=''  class='imaheight'  class='img-responsive' src='PRODUCT_IMG/AUTOMATIC.png'></div><div class='product-thumb-info-content'><span class='price pull-right'>29.99 USD</span><h4><a href='shop-product-detail2.html'>Denim shirt</a></h4> <span class='item-cat'><small><a href='#'>Jackets</a></small></span></div></div></div></div>
-                        <div class='col-md-3 animation'><div class='item product'><div class='product-thumb-info'><div class='product-thumb-info-image'><span class='product-thumb-info-act'><a href='shop-cart-full.html' class='add-to-cart-product' > <span><i class='fa fa-shopping-cart'></i></span></a> </span><img alt=''  class='imaheight' class='img-responsive' src='PRODUCT_IMG/AUTOMATIC.png'></div><div class='product-thumb-info-content'><span class='price pull-right'>29.99 USD</span><h4><a href='shop-product-detail2.html'>Denim shirt</a></h4> <span class='item-cat'><small><a href='#'>Jackets</a></small></span></div></div></div></div>
-                        <div class='col-md-3 animation'><div class='item product'><div class='product-thumb-info'><div class='product-thumb-info-image'><span class='product-thumb-info-act'><a href='shop-cart-full.html' class='add-to-cart-product' > <span><i class='fa fa-shopping-cart'></i></span></a> </span><img alt=''  class='imaheight' class='img-responsive' src='PRODUCT_IMG/AUTOMATIC.png'></div><div class='product-thumb-info-content'><span class='price pull-right'>29.99 USD</span><h4><a href='shop-product-detail2.html'>Denim shirt</a></h4> <span class='item-cat'><small><a href='#'>Jackets</a></small></span></div></div></div></div>
-                   
+                    <div id="product_img" runat="server">
+
+                        <div class='col-md-3 animation'>
+                            <div class='item product'>
+                                <div class='product-thumb-info'>
+                                    <div class='product-thumb-info-image'>
+                                        <span class='product-thumb-info-act'><a href='shop-cart-full.html' class='add-to-cart-product'><span><i class='fa fa-shopping-cart'></i></span></a></span>
+                                        <img alt='' class='imaheight' class='img-responsive' src='PRODUCT_IMG/AUTOMATIC.png'>
+                                    </div>
+                                    <div class='product-thumb-info-content'>
+                                        <span class='price pull-right'>29.99 USD</span><h4><a href='shop-product-detail2.html'>Denim shirt</a></h4>
+                                        <span class='item-cat'><small><a href='#'>Jackets</a></small></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-md-3 animation'>
+                            <div class='item product'>
+                                <div class='product-thumb-info'>
+                                    <div class='product-thumb-info-image'>
+                                        <span class='product-thumb-info-act'><a href='shop-cart-full.html' class='add-to-cart-product'><span><i class='fa fa-shopping-cart'></i></span></a></span>
+                                        <img alt='' class='imaheight' class='img-responsive' src='PRODUCT_IMG/AUTOMATIC.png'>
+                                    </div>
+                                    <div class='product-thumb-info-content'>
+                                        <span class='price pull-right'>29.99 USD</span><h4><a href='shop-product-detail2.html'>Denim shirt</a></h4>
+                                        <span class='item-cat'><small><a href='#'>Jackets</a></small></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-md-3 animation'>
+                            <div class='item product'>
+                                <div class='product-thumb-info'>
+                                    <div class='product-thumb-info-image'>
+                                        <span class='product-thumb-info-act'><a href='shop-cart-full.html' class='add-to-cart-product'><span><i class='fa fa-shopping-cart'></i></span></a></span>
+                                        <img alt='' class='imaheight' class='img-responsive' src='PRODUCT_IMG/AUTOMATIC.png'>
+                                    </div>
+                                    <div class='product-thumb-info-content'>
+                                        <span class='price pull-right'>29.99 USD</span><h4><a href='shop-product-detail2.html'>Denim shirt</a></h4>
+                                        <span class='item-cat'><small><a href='#'>Jackets</a></small></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-md-3 animation'>
+                            <div class='item product'>
+                                <div class='product-thumb-info'>
+                                    <div class='product-thumb-info-image'>
+                                        <span class='product-thumb-info-act'><a href='shop-cart-full.html' class='add-to-cart-product'><span><i class='fa fa-shopping-cart'></i></span></a></span>
+                                        <img alt='' class='imaheight' class='img-responsive' src='PRODUCT_IMG/AUTOMATIC.png'>
+                                    </div>
+                                    <div class='product-thumb-info-content'>
+                                        <span class='price pull-right'>29.99 USD</span><h4><a href='shop-product-detail2.html'>Denim shirt</a></h4>
+                                        <span class='item-cat'><small><a href='#'>Jackets</a></small></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -309,22 +410,93 @@
         </section>
         <!-- End Ads -->
         <!-- End Latest Blogs -->
+        <div class="modal fade quickview-wrapper" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                    <div class="product-detail">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div >
+                                    <ul style="text-decoration:none;list-style:none" id="slider1">
+                                        <li>
+                                            <div id="li_productimage"></div>
+                                            <%--<img id="img_popproduct" alt="" class='imaheight' src="#" />--%></li>
 
+                                    </ul>
+
+
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="summary entry-summary">
+
+                                    <h3 id="h_popproname"></h3>
+
+
+                                    <p class="price">
+                                        <span class="amount" id="s_popproamount"></span>
+                                    </p>
+
+                                    <ul class="list-inline list-select clearfix" id="ul_drops">
+                                        <li id="li_primarydrop">
+                                            <div class="list-sort">
+                                                <select class="formDropdown" id="select_popprimarytype">
+                                                </select>
+                                            </div>
+                                        </li>
+                                        <li id="li_secondarydrop">
+                                            <div class="list-sort">
+                                                <select class="formDropdown" id="select_popsectype">
+                                                </select>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                    <div class="cart">
+                                        <!--btn-icon-->
+                                        <button type="button" onclick="addtoc();" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                    </div>
+
+
+
+                                    <div class="panel-group" id="accordion">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Description</a> </h4>
+                                            </div>
+                                            <div id="collapseOne" class="panel-collapse collapse in">
+                                                <div class="panel-body">
+                                                    <p id="p_popdesc"></p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
-           // debugger;
-          //  function ShowCurrentTime() {
-           // PageMethods.GETPRODUCTS("test", OnSuccess);
-           // }
+            // debugger;
+            //  function ShowCurrentTime() {
+            // PageMethods.GETPRODUCTS("test", OnSuccess);
+            // }
             function OnSuccess(response, userContext, methodName) {
-               // debugger;
+                // debugger;
                 document.getElementById('owl-product-slide').innerHTML = "<div class='col-md-12 animation'><div class='item product'><div class='product-thumb-info'><div class='product-thumb-info-image'><span class='product-thumb-info-act'><a href='shop-cart-full.html' class='add-to-cart-product'> <span><i class='fa fa-shopping-cart'></i></span></a> </span><img alt='' class='img-responsive' src='PRODUCT_IMG/AUTOMATIC.png'></div><div class='product-thumb-info-content'><span class='price pull-right'>29.99 USD</span><h4><a href='shop-product-detail2.html'>Denim shirt</a></h4> <span class='item-cat'><small><a href='#'>Jackets</a></small></span></div></div></div></div><div class='col-md-12 animation'><div class='item product'><div class='product-thumb-info'><div class='product-thumb-info-image'><span class='product-thumb-info-act'><a href='shop-cart-full.html' class='add-to-cart-product'> <span><i class='fa fa-shopping-cart'></i></span></a> </span><img alt='' class='img-responsive' src='PRODUCT_IMG/AUTOMATIC.png'></div><div class='product-thumb-info-content'><span class='price pull-right'>29.99 USD</span><h4><a href='shop-product-detail2.html'>Denim shirt</a></h4> <span class='item-cat'><small><a href='#'>Jackets</a></small></span></div></div></div></div><div class='col-md-12 animation'><div class='item product'><div class='product-thumb-info'><div class='product-thumb-info-image'><span class='product-thumb-info-act'><a href='shop-cart-full.html' class='add-to-cart-product'> <span><i class='fa fa-shopping-cart'></i></span></a> </span><img alt='' class='img-responsive' src='PRODUCT_IMG/AUTOMATIC.png'></div><div class='product-thumb-info-content'><span class='price pull-right'>29.99 USD</span><h4><a href='shop-product-detail2.html'>Denim shirt</a></h4> <span class='item-cat'><small><a href='#'>Jackets</a></small></span></div></div></div></div>";
             }
         });
-    
-                    
-       
+
+
+
     </script>
     <script src="vendor/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -354,5 +526,4 @@
 
         });
     </script>--%>
-    
 </asp:Content>

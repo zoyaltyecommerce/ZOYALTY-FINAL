@@ -16,15 +16,13 @@ namespace Zoyal
         {
             if (!IsPostBack)
             {
-               
+
                 try
                 {
 
-
-
                     PRODUCT daa = new PRODUCT();
 
-                    if (Request.QueryString["city_id"] == null && Session["CITY_ID"]==null)
+                    if (Request.QueryString["city_id"] == null && Session["CITY_ID"] == null)
                     {
                         DataTable dt_img = BLL.GETALLPRODUCTS();
                         if (dt_img.Rows.Count > 0)
@@ -32,14 +30,14 @@ namespace Zoyal
                             string images = "";
                             for (int i = 0; i < dt_img.Rows.Count; i++)
                             {
-                                images = images + " <div class='col-md-3 animation'><div class='item product'><div class='product-thumb-info'><div class='product-thumb-info-image'><span class='product-thumb-info-act'><a href='shop-cart-full.aspx?id=" + dt_img.Rows[i]["PRODUCT_ID"] + "' class='add-to-cart-product' onclick='checkdate();' > <span><i class='fa fa-shopping-cart'></i></span></a> </span><img alt='' class='imaheight' class='img-responsive' src='" + dt_img.Rows[i]["PRODUCT_IMAGEURL"].ToString() + "'></div><div class='product-thumb-info-content'><span class='price pull-right'>" + dt_img.Rows[i]["PRODUCT_PRICE"] + "/Rs</span><h4><a href='#'>" + dt_img.Rows[i]["PRODUCT_IMAGETITLE"].ToString() + "</a></h4> <span class='item-cat'><small class='sleft'><a href='#'>" + dt_img.Rows[i]["PRODUCT_NAME"].ToString() + " </a></small></span></div></div></div></div>";
+                                images = images + " <div class='col-md-3 animation'><div class='item product'><div class='product-thumb-info'><div class='product-thumb-info-image'><span class='product-thumb-info-act'><a style='cursor:pointer' onclick=AddtoCartProduct('" + dt_img.Rows[i]["PRODUCT_ID"] + "','" + dt_img.Rows[i]["PRODUCT_CITYID"] + "','" + dt_img.Rows[i]["PRODUCT_TYPEID"] + "','" + dt_img.Rows[i]["PRODUCT_SUBTYPEID"] + "','" + dt_img.Rows[i]["PRODUCT_PRICE"] + "') class='add-to-cart-product'  > <span><i class='fa fa-shopping-cart'></i></span></a> </span><img alt='' class='imaheight' class='img-responsive' src='" + dt_img.Rows[i]["PRODUCT_IMAGEURL"].ToString() + "'></div><div class='product-thumb-info-content'><span class='price pull-right'>" + dt_img.Rows[i]["PRODUCT_PRICE"] + "/Rs</span><h4><a href='#'>" + dt_img.Rows[i]["PRODUCT_IMAGETITLE"].ToString() + "</a></h4> <span class='item-cat'><small class='sleft'><a href='#'>" + dt_img.Rows[i]["PRODUCT_NAME"].ToString() + " </a></small></span></div></div></div></div>";
 
                             }
                             product_img.InnerHtml = images;
                         }
 
-                    } 
-                    else if(Request.QueryString["city_id"] != null)
+                    }
+                    else if (Request.QueryString["city_id"] != null)
                     {
                         int cityid = Int32.Parse(Request.QueryString["city_id"].ToString());
                         DataTable dt_img1 = BLL.GETSELECTPRODUCTS(cityid);
@@ -50,12 +48,12 @@ namespace Zoyal
                         {
 
 
-                            images = images + " <div class='col-md-3 animation'><div class='item product'><div class='product-thumb-info'><div class='product-thumb-info-image'><span class='product-thumb-info-act'><a href='shop-cart-full.aspx?id=" + dt_img1.Rows[i]["PRODUCT_ID"] + "' class='add-to-cart-product' onclick='checkdate();' > <span><i class='fa fa-shopping-cart'></i></span></a> </span><img alt='' class='imaheight' class='img-responsive' src='" + dt_img1.Rows[i]["PRODUCT_IMAGEURL"].ToString() + "'></div><div class='product-thumb-info-content'><span class='price pull-right'>" + dt_img1.Rows[i]["PRODUCT_PRICE"] + "/Rs</span><h4><a href='#'>" + dt_img1.Rows[i]["PRODUCT_IMAGETITLE"].ToString() + "</a></h4> <span class='item-cat'><small><a href='#'>" + dt_img1.Rows[i]["PRODUCT_NAME"].ToString() + " </a></small></span></div></div></div></div>";
+                            images = images + " <div class='col-md-3 animation'><div class='item product'><div class='product-thumb-info'><div class='product-thumb-info-image'><span class='product-thumb-info-act'><a style='cursor:pointer' onclick=AddtoCartProduct('" + dt_img1.Rows[i]["PRODUCT_ID"] + "','" + dt_img1.Rows[i]["PRODUCT_CITYID"] + "','" + dt_img1.Rows[i]["PRODUCT_TYPEID"] + "','" + dt_img1.Rows[i]["PRODUCT_SUBTYPEID"] + "','" + dt_img1.Rows[i]["PRODUCT_PRICE"] + "') class='add-to-cart-product'  > <span><i class='fa fa-shopping-cart'></i></span></a> </span><img alt='' class='imaheight' class='img-responsive' src='" + dt_img1.Rows[i]["PRODUCT_IMAGEURL"].ToString() + "'></div><div class='product-thumb-info-content'><span class='price pull-right'>" + dt_img1.Rows[i]["PRODUCT_PRICE"] + "/Rs</span><h4><a href='#'>" + dt_img1.Rows[i]["PRODUCT_IMAGETITLE"].ToString() + "</a></h4> <span class='item-cat'><small><a href='#'>" + dt_img1.Rows[i]["PRODUCT_NAME"].ToString() + " </a></small></span></div></div></div></div>";
 
                         }
                         product_img.InnerHtml = images;
                     }
-                    else if(Session["CITY_ID"] != null)
+                    else if (Session["CITY_ID"] != null)
                     {
                         int cityid = Int32.Parse(Session["CITY_ID"].ToString());
                         DataTable dt_img1 = BLL.GETSELECTPRODUCTS(cityid);
@@ -66,7 +64,7 @@ namespace Zoyal
                         {
 
 
-                            images = images + " <div class='col-md-3 animation'><div class='item product'><div class='product-thumb-info'><div class='product-thumb-info-image'><span class='product-thumb-info-act'><a href='shop-cart-full.aspx?id=" + dt_img1.Rows[i]["PRODUCT_ID"] + "' class='add-to-cart-product' onclick='checkdate();' > <span><i class='fa fa-shopping-cart'></i></span></a> </span><img alt='' class='imaheight' class='img-responsive' src='" + dt_img1.Rows[i]["PRODUCT_IMAGEURL"].ToString() + "'></div><div class='product-thumb-info-content'><span class='price pull-right'>" + dt_img1.Rows[i]["PRODUCT_PRICE"] + "/Rs</span><h4><a href='#'>" + dt_img1.Rows[i]["PRODUCT_IMAGETITLE"].ToString() + "</a></h4> <span class='item-cat'><small><a href='#'>" + dt_img1.Rows[i]["PRODUCT_NAME"].ToString() + " </a></small></span></div></div></div></div>";
+                            images = images + " <div class='col-md-3 animation'><div class='item product'><div class='product-thumb-info'><div class='product-thumb-info-image'><span class='product-thumb-info-act'><a style='cursor:pointer' onclick=AddtoCartProduct('" + dt_img1.Rows[i]["PRODUCT_ID"] + "','" + dt_img1.Rows[i]["PRODUCT_CITYID"] + "','" + dt_img1.Rows[i]["PRODUCT_TYPEID"] + "','" + dt_img1.Rows[i]["PRODUCT_SUBTYPEID"] + "','" + dt_img1.Rows[i]["PRODUCT_PRICE"] + "') class='add-to-cart-product' onclick='checkdate();' > <span><i class='fa fa-shopping-cart'></i></span></a> </span><img alt='' class='imaheight' class='img-responsive' src='" + dt_img1.Rows[i]["PRODUCT_IMAGEURL"].ToString() + "'></div><div class='product-thumb-info-content'><span class='price pull-right'>" + dt_img1.Rows[i]["PRODUCT_PRICE"] + "/Rs</span><h4><a href='#'>" + dt_img1.Rows[i]["PRODUCT_IMAGETITLE"].ToString() + "</a></h4> <span class='item-cat'><small><a href='#'>" + dt_img1.Rows[i]["PRODUCT_NAME"].ToString() + " </a></small></span></div></div></div></div>";
 
                         }
                         product_img.InnerHtml = images;
@@ -259,10 +257,80 @@ namespace Zoyal
 
 
         //}
-    
-       
 
-      
+        [WebMethod]
+        public static string WEBGETPRODUCTDETAILS(string input)
+        {
+            string[] result = input.Split(',');
+            string productid = result[0];
+            string cityid = result[1];
+            string typeoneid = result[2];
+            string typetwoid = result[3];
+            string price = result[4];
+
+            DataTable dt = new DataTable();
+            DataTable dt_typeones = new DataTable();
+            DataTable dt_typetwos = new DataTable();
+            if (typeoneid != "" && typetwoid != "")
+            {
+                dt = BLL.ExecuteQuery("EXEC Usp_products @OPERATION='GETPRODUCTSBYIDANDPRICEANDTYPEONETYPETWO',@PRODUCT_MASTERTYPEID=" + productid + ",@PRODUCT_PRICE='" + price + "',@PRODUCT_CITYID=" + cityid + ",@PRODUCT_TYPEID=" + typeoneid + ",@PRODUCT_SUBTYPEID=" + typetwoid + "");
+                dt_typeones = BLL.ExecuteQuery("EXEC USP_PRODUCTTYPES @OPERATION='GETTYPEONES',@PRODUCT_MASTERTYPEID=" + productid + "");
+                dt_typetwos = BLL.ExecuteQuery("EXEC USP_PRODUCTTYPES @OPERATION='GETTYPETWOS',@PRODUCT_MASTERTYPEID=" + productid + ",@PRODUCT_TYPEID=" + typeoneid + "");
+            }
+            else if (typeoneid != "")
+            {
+                dt = BLL.ExecuteQuery("EXEC Usp_products @OPERATION='GETPRODUCTSBYIDANDPRICEANDTYPEONE',@PRODUCT_MASTERTYPEID=" + productid + ",@PRODUCT_PRICE='" + price + "',@PRODUCT_CITYID=" + cityid + ",@PRODUCT_TYPEID=" + typeoneid + "");
+                dt_typeones = BLL.ExecuteQuery("EXEC USP_PRODUCTTYPES @OPERATION='GETTYPEONES',@PRODUCT_MASTERTYPEID=" + productid + "");
+            }
+            else
+            {
+                dt = BLL.ExecuteQuery("EXEC Usp_products @OPERATION='GETPRODUCTSBYIDANDPRICE',@PRODUCT_MASTERTYPEID=" + productid + ",@PRODUCT_PRICE='" + price + "',@PRODUCT_CITYID=" + cityid + "");
+            }
+            string res = "";
+            if (dt.Rows.Count > 0)
+            {
+                res = dt.Rows[0]["PRODUCT_NAME"].ToString() + "$" + dt.Rows[0]["PRODUCT_DESC"].ToString() + "$" + dt.Rows[0]["PRODUCT_IMAGEURL"].ToString() + "$" + dt.Rows[0]["PRODUCT_IMAGETITLE"].ToString() + "$" + dt.Rows[0]["PRODUCT_PRICE"].ToString() + "$" + dt.Rows[0]["PRODUCT_CITYID"].ToString() + "$" + dt.Rows[0]["PRODUCT_TYPEID"].ToString() + "$" + dt.Rows[0]["PRODUCT_SUBTYPEID"].ToString() + "$" + dt.Rows[0]["PRODUCT_MASTERTYPEID"].ToString();
+
+                string typeonedrops = "";
+                string typetwodrops = "";
+                //if (typeoneid != "" && typetwoid != "")
+                //{
+                    for (int i = 0; i < dt_typeones.Rows.Count; i++)
+                    {
+                        if (typeonedrops=="")
+                        {
+                            typeonedrops = "<option value='" + dt_typeones.Rows[i]["TYPE_ID"] + "'>" + dt_typeones.Rows[i]["TYPE_NAME"] + "</option>";
+                        }
+                        else
+                        {
+                            typeonedrops = typeonedrops+"<option value='" + dt_typeones.Rows[i]["TYPE_ID"] + "'>" + dt_typeones.Rows[i]["TYPE_NAME"] + "</option>";
+                        }
+                        
+                    }
+                    for (int k = 0; k < dt_typetwos.Rows.Count; k++)
+                    {
+                        if (typetwodrops == "")
+                        {
+                            typetwodrops = "<option value='" + dt_typetwos.Rows[k]["TYPE_ID"] + "'>" + dt_typetwos.Rows[k]["TYPE_NAME"] + "</option>";
+                        }
+                        else
+                        {
+                            typetwodrops = typetwodrops+"<option value='" + dt_typetwos.Rows[k]["TYPE_ID"] + "'>" + dt_typetwos.Rows[k]["TYPE_NAME"] + "</option>";
+                        }
+
+                       
+                    }
+               // }
+
+                    return res + "$" + typeonedrops + "$" + typetwodrops + "$" + dt.Rows[0]["PRODUCT_ID"].ToString() + "$" + productid;
+            }
+            else
+            {
+                return "error";
+            }
+
+        }
+
 
     }
 }
