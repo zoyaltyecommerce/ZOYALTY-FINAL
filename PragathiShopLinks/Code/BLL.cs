@@ -656,6 +656,11 @@ namespace ZOYALTY.Code
             bool status = BLL.ExecuteNonQuery("EXEC USP_PRODUCTS @OPERATION='upadete_pro',@PRODUCT_NAME='" + OBJ.PRODUCT_NAME + "',@PRODUCT_IMAGETITLE='" + OBJ.PRODUCT_IMAGETITLE + "',@PRODUCT_DESC='" + OBJ.PRODUCT_DESC + "',@PRODUCT_TITLE='" + OBJ.PRODUCT_TITLE + "',@PRODUCT_CITYID='" + OBJ.PRODUCT_CITYID + "',@PRODUCT_MASTERTYPEID='" + ID + "',@PRODUCT_IMAGEURL='" + OBJ.PRODUCT_IMAGEURL + "'");
             return status;
         }
+        internal static bool insert_masterproduct(MASTERPRODUCT obj)
+        {
+            bool status = BLL.ExecuteNonQuery("EXEC USP_MASTERPRODUCT @OPERATION='INSERT_MASTERPRODUCT',@MPRODUCT_NAME='" + obj.MPRODUCT_NAME + "',@MPRODUCT_DESC='" + obj.MPRODUCT_DESC + "',@MPRODUCT_IMAGEURL='" + obj.MPRODUCT_IMAGEURL + "',@MPRODUCT_IMAGETITLE='" + obj.MPRODUCT_IMAGETITLE + "',@MPRODUCT_CITYID='" + obj.MPRODUCT_CITYID + "',@MPRODUCT_TITLE='" + obj.MPRODUCT_TITLE+"'");
+            return status;
+        }
 
     }
 }
