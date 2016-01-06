@@ -661,6 +661,7 @@
     <Content Include="Admin\login.aspx" />
     <Content Include="Admin\login.html" />
     <Content Include="Admin\Maincart.aspx" />
+    <Content Include="Admin\masterproduct.aspx" />
     <Content Include="Admin\myaccepeted_products.aspx" />
     <Content Include="Admin\PersonalDetails.aspx" />
     <Content Include="Admin\productinsert.aspx" />
@@ -1288,6 +1289,13 @@
     </Compile>
     <Compile Include="Admin\Maincart.aspx.designer.cs">
       <DependentUpon>Maincart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\masterproduct.aspx.cs">
+      <DependentUpon>masterproduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\masterproduct.aspx.designer.cs">
+      <DependentUpon>masterproduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\myaccepeted_products.aspx.cs">
       <DependentUpon>myaccepeted_products.aspx</DependentUpon>
